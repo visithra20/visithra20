@@ -6,7 +6,10 @@ import landingpage from "../../images/landingpage.png"
 
 export const Landingpage = ()=>{
     return (
-        <Box name = "landingpage" cssStyle={{padding:"88px 500px 0 500px"}}>
+        <Box name = "landingpage" cssStyle={{
+            // padding:"88px 500px 0 500px",
+            textAlign: "center",
+        }}>
             <Imgcomp 
                 source = {landingpage}
                 alternative="landing page"
