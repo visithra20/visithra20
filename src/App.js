@@ -5,8 +5,8 @@ import GlobalStyle from "../src/Globalstyles";
 export const App = ()=>{
     return (
         <>
-        <GlobalStyle />
-            <Header />
+        
+            
         </>
     );
 }

@@ -1,11 +1,14 @@
 import React from "react";
-import { App } from "../src/App";
+import { Header } from "../src/Component/Header";
+import { Landingpage } from "../src/Component/Landingpage";
 import GlobalStyle from "../src/Globalstyles";
 
 const Homepage = ()=>{
     return (
         <>
-            <App />
+            <GlobalStyle />
+            <Header />
+            <Landingpage />
         </>
         
     )
