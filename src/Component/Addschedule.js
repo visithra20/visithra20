@@ -1,13 +1,44 @@
 import React from "react";
 import { Box } from "./Reusecomp/Box";
+import backbutn from "../../images/backbtn.png";
+import { Imgcomp } from "./Reusecomp/Imgcomp";
+import { Textcomp } from "./Reusecomp/Textcomp";
+import { useRouter } from "next/router";
+import { Inputcomp } from "./Reusecomp/Inputcomp";
 
-export const Addschedule = ()=>{
-    return (
+export const Addschedule = () => {
+  const Router = useRouter();
+  const handleback = () => {
+    Router.push("/");
+  };
 
+  return (
+    <Box cssStyle={{ height: "1000px", padding: "35px 122px" }}>
+      <Box name="backtoland" cssStyle={{}}>
+        <Imgcomp
+          source={backbutn}
+          alternative="backbutton"
+          cssStyles={{ width: "24px", marginTop: "10px" }}
+          onclick={handleback}
+        />
+        <Textcomp
+          value="Edit schedule"
+          cssStyles={{
+            fontWeight: 600,
+            fontSize: "24px",
+            marginLeft: "20px",
+          }}
+        />
+      </Box>
 
-        <Box cssStyle={{backgroundColor: "red",height: "1000px"}}>
-            <span>hello</span>
+      <Box name="scheduleform">
+        <Box name="toprow">
+          <Box name = "Branch">
+            
+          </Box>
         </Box>
+      </Box>
+    </Box>
 
     //     <><div>
     //     <input type="text" value="Branch"/>
@@ -51,7 +82,6 @@ export const Addschedule = ()=>{
     //       <input type="button" value="FN"/>
     //       <input type="button" value="AN"/>
 
-
     //   </div>
     //   <div>
     //       <input type="text" value="Lab1"/>
@@ -59,5 +89,5 @@ export const Addschedule = ()=>{
     //       <input type="button" value="FN"/>
     //       <input type="button" value="AN"/>
     //   </div></>
-    );
-}
+  );
+};

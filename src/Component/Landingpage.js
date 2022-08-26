@@ -3,26 +3,24 @@ import { Box } from "./Reusecomp/Box";
 import { Textcomp } from "./Reusecomp/Textcomp";
 import { Imgcomp } from "./Reusecomp/Imgcomp";
 import landingpage from "../../images/landingpage.png";
-import { Buttoncomp } from "./Reusecomp/Buttoncomp";
 import plusbutton from "../../images/plusbutton.png";
 import { useRouter } from "next/router";
 
 export const Landingpage = () => {
-
-    const Router = useRouter();
-    const handlecreateclick = ()=>{
-        Router.push("/Createschedule")
-    }
+  const Router = useRouter();
+  const handlecreateclick = () => {
+    Router.push("/Createschedule");
+  };
 
   return (
     <Box
       name="landingpage"
       cssStyle={{
         padding: "88px 500px 0 500px",
-        height: "80%"
+        marginBottom: "150px",
       }}
     >
-      <Imgcomp source={landingpage} alternative="landing page" cssStyles={{}} />
+      <Imgcomp source={landingpage} alternative="landing page" />
       <Box
         cssStyle={{
           position: "absolute",
@@ -39,18 +37,27 @@ export const Landingpage = () => {
           value="There are no schedules get started by creating schedules"
         />
         <Box
-            name = "button"
+          name="button"
           cssStyle={{
             color: "#fff",
             backgroundColor: "#5375E2",
             display: "flex",
             width: "192px",
             borderRadius: "5px",
-            margin: "30px 0 0 90px"
+            margin: "30px 0 0 90px",
           }}
-          onclick = {handlecreateclick}
+          onclick={handlecreateclick}
         >
-          <Imgcomp source={plusbutton} alternative="plusbtn" cssStyles={{padding: "15px 11px 13px 21px", width: "15px", height: "15px"}} />
+          <Imgcomp
+            source={plusbutton}
+            alternative="plusbtn"
+            cssStyles={{
+              padding: "15px 11px 13px 21px",
+              width: "15px",
+              height: "15px",
+            }}
+          />
+
           <Textcomp
             Comp="div"
             cssStyles={{
@@ -63,7 +70,6 @@ export const Landingpage = () => {
           />
         </Box>
       </Box>
-      
     </Box>
   );
 };

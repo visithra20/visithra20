@@ -10,8 +10,6 @@ export const Footer = () => {
         backgroundColor: "#FBFBFB",
         width: "100%",
         fontweight: 200,
-        position: "absolute",
-        bottom: 0,
         padding: "13px 370px 13px 317px"
       }}
     >
