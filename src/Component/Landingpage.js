@@ -5,11 +5,13 @@ import { Imgcomp } from "./Reusecomp/Imgcomp";
 import landingpage from "../../images/landingpage.png";
 import { Buttoncomp } from "./Reusecomp/Buttoncomp";
 import plusbutton from "../../images/plusbutton.png";
+import { useRouter } from "next/router";
 
 export const Landingpage = () => {
 
+    const Router = useRouter();
     const handlecreateclick = ()=>{
-        
+        Router.push("/Createschedule")
     }
 
   return (

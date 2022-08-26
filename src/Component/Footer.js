@@ -8,6 +8,7 @@ export const Footer = () => {
       name="Footer"
       cssStyle={{
         backgroundColor: "#FBFBFB",
+        width: "100%",
         fontweight: 200,
         position: "absolute",
         bottom: 0,

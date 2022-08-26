@@ -4,9 +4,15 @@ import { Box } from "./Reusecomp/Box";
 import { Imgcomp } from "./Reusecomp/Imgcomp";
 import logo from "../../images/Logo.png";
 import profilelogo from "../../images/profilelogo.png";
+import GlobalStyle from "../Globalstyles";
+import IndexPage from "../indexpage";
+
 
 export const Header = () => {
   return (
+    <>
+    <IndexPage />
+    <GlobalStyle />
     <Box
       name="header"
       cssStyle={{
@@ -61,5 +67,6 @@ export const Header = () => {
         value="Waseem"
       />
     </Box>
+    </>
   );
 };
