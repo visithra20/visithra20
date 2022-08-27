@@ -3,13 +3,16 @@ import { Header } from "../src/Component/Header";
 import { Landingpage } from "../src/Component/Landingpage";
 import { Footer } from "../src/Component/Footer";
 
+
 const Homepage = ()=>{
     return (
         <>
+
             
             <Header />
             <Landingpage />
             <Footer />
+
         </>
         
     )

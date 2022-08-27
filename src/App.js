@@ -5,8 +5,13 @@ import GlobalStyle from "../src/Globalstyles";
 export const App = ()=>{
     return (
         <>
+<<<<<<< HEAD
         
             
+=======
+        <GlobalStyle />
+            <Header />
+>>>>>>> half header is made
         </>
     );
 }

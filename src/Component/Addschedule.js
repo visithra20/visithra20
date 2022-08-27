@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Box } from "./Reusecomp/Box";
 import backbutn from "../../images/backbtn.png";
 import { Imgcomp } from "./Reusecomp/Imgcomp";
@@ -6,6 +6,7 @@ import { Textcomp } from "./Reusecomp/Textcomp";
 import { useRouter } from "next/router";
 import { Inputcomp } from "./Reusecomp/Inputcomp";
 import dropdownicon from "../../images/dropdownbtn.png";
+import {ExamType,Department,Branch} from "./dropdowncomps";
 
 const dropdownstyle = {
   border: "1px solid #e8e8ea",
@@ -16,15 +17,32 @@ const dropdownstyle = {
   color: "#A5A3A9",
 };
 
+const timepickerstyle = {
+  border: "1px solid #E8E8E8",
+  borderRadius: "5px",
+  width: "70px",
+  padding: "17px 16px",
+  margin: "20px 15px",
+};
+
 export const Addschedule = () => {
   const Router = useRouter();
   const handleback = () => {
     Router.push("/");
   };
 
+  const [ishidden,sethidden] = useState(true);
+ 
+
+
+  const changeHidden = ()=>{
+    sethidden(!ishidden)
+  }
+  
   return (
     <Box cssStyle={{ height: "1000px", padding: "35px 122px" }}>
-      <Box name="backtoland" cssStyle={{}}>
+      <Box name="backtoland" 
+            onclick = {changeHidden}>
         <Imgcomp
           source={backbutn}
           alternative="backbutton"
@@ -52,18 +70,26 @@ export const Addschedule = () => {
         <Box name="toprow" cssStyle={{ display: "flex" }}>
           <Box name="Branch">
             <Textcomp Comp="div" value="Branch" />
-            <Box name="branchdropdown" cssStyle={dropdownstyle}>
+            <Box name="branchdropdown" cssStyle={dropdownstyle} 
+            onclick = {changeHidden}>
               <Textcomp value="B.E" />
               <Imgcomp source={dropdownicon} alternative="dropdown" />
             </Box>
+            <Branch hidden={ishidden} />
           </Box>
-          <Box name="Department">
+
+
+          <Box name="Department" >
             <Textcomp Comp="div" value="Department" />
-            <Box name="branchdropdown" cssStyle={dropdownstyle}>
+            <Box name="branchdropdown" cssStyle={dropdownstyle} 
+            onclick = {changeHidden}>
               <Textcomp value="EEE" />
               <Imgcomp source={dropdownicon} alternative="dropdown" />
             </Box>
+            <Department hidden={ishidden}/>
           </Box>
+
+
           <Box name="Semester">
             <Textcomp Comp="div" value="Semester" />
             <Inputcomp
@@ -78,62 +104,105 @@ export const Addschedule = () => {
           </Box>
         </Box>
 
-        <Box name="secondrow" cssStyle={{marginTop:"30px"}}>
+        <Box name="secondrow" cssStyle={{ marginTop: "30px" }}>
           <Textcomp Comp="div" value="Exam type" />
-          <Box 
-          name = "exametypedropdown" 
-          cssStyle={{
-                ...dropdownstyle,
-                width: "98%",
-                padding: "20px 0 20px 24px"
-            }}> 
-          <Textcomp
-            value={"Semester"}
-          />
-              <Imgcomp source={dropdownicon} alternative="dropdown" />
+          <Box
+            name="examtypedropdown"
+            cssStyle={{
+              ...dropdownstyle,
+              width: "98%",
+              padding: "20px 0 20px 24px",
+            }}
+            onclick = {changeHidden}
+          >
+            <Textcomp value={"Semester"} />
+            <Imgcomp source={dropdownicon} alternative="dropdown" />
           </Box>
-         
+          <ExamType hidden={ishidden}/>
+        </Box>
 
+
+        <Box name="Thirdrow" cssStyle={{ marginTop: "30px", display: "flex" }}>
+          <Box name="Timerange">
+            <Textcomp Comp="div" value="Time Range" />
+            <Box name="forenoon">
+              <Textcomp
+                value="FN"
+                cssStyles={{
+                  fontWeight: "700",
+                  fontSize: "16px",
+                  lineHeight: "22px",
+                  marginRight: "7px",
+                }}
+              />
+              <Inputcomp type="number" value="09" cssStyles={timepickerstyle} />
+              <Inputcomp type="number" value="30" cssStyles={timepickerstyle} />
+              <Inputcomp type="number" cssStyles={timepickerstyle} />
+              <Textcomp value="to" />
+              <Inputcomp type="number" value="12" cssStyles={timepickerstyle} />
+              <Inputcomp type="number" value="30" cssStyles={timepickerstyle} />
+              <Inputcomp type="number"  cssStyles={timepickerstyle} />
+              <Textcomp value="3 hours" />
+            </Box>
+            <Box name="afternoon">
+              <Textcomp
+                value="AN"
+                cssStyles={{
+                  fontWeight: "700",
+                  fontSize: "16px",
+                  lineHeight: "22px",
+                  marginRight: "7px",
+                }}
+              />
+              <Inputcomp type="number" value="09" cssStyles={timepickerstyle} />
+              <Inputcomp type="number" value="30" cssStyles={timepickerstyle} />
+              <Inputcomp type="number"  cssStyles={timepickerstyle} />
+              <Textcomp value="to" />
+              <Inputcomp type="number" value="12" cssStyles={timepickerstyle} />
+              <Inputcomp type="number" value="30" cssStyles={timepickerstyle} />
+              <Inputcomp type="number" cssStyles={timepickerstyle} />
+              <Textcomp value="3 hours" />
+            </Box>
+
+            <Box name="subjectsandlab" cssStyle={{display:"flex"}}>
+              <Box name="subject" >
+                <Textcomp Comp="div" value="subjects" />
+                <Inputcomp
+                  type="text"
+                  value="5"
+                  cssStyles={{
+                    padding: "20px 24px",
+                    border: "1px solid #E8E8EA",
+                    borderRadius: "5px",
+                    margin: "10px 30px 0 0"
+                  }}
+                />
+              </Box>
+              <Box name="lab" >
+                <Textcomp Comp="div" value="Labs" />
+                <Inputcomp
+                  type="text"
+                  value="2"
+                  cssStyles={{
+                    padding: "20px 24px",
+                    border: "1px solid #E8E8EA",
+                    borderRadius: "5px",
+                    marginTop: "10px"
+                  }}
+                />
+              </Box>
+            </Box>
+
+            
+
+
+          </Box>
         </Box>
       </Box>
     </Box>
 
-    //     <><div>
-    //     <input type="text" value="Branch"/>
-    //     <input type="text" value="Department"/>
-    //     <input type="text" value="Semester"/>
-    //   </div>
-    //   <div>
-    //     <input type="text" value="Exam Type"/></div>
-    //   <div>
-    //       <input type="text" value="Time Range"/>
-    //      <div>
-    //      <input type="number" value="FN"/>
-    //       <input type="number" value="09"/>
-    //       <input type="number" value="30"/>
-    //       <input type="text" value="AM"/>
-    //       <input type="text" value="to"/>
-    //       <input type="number" value="12"/>
-    //       <input type="number" value="30"/>
-    //       <input type="number" value="PM"/>
-    //       <input type="button" value="Set all for FN"/>
-    //       </div>
-    //       <div>
-    //       <input type="text" value="AN"/>
-    //       <input type="number" value="01"/>
-    //       <input type="number" value="30"/>
-    //       <input type="text" value="PM"/>
-    //       <input type="text" value="to"/>
-    //       <input type="number" value="04"/>
-    //       <input type="number" value="30"/>
-    //       <input type="text" value="PM"/>
-    //       <input type="button" value="Set all for AN"/>
-    //       </div>
-    //   </div>
-    //   <div>
-    //       <input type="text" value="Subjects"/>
-    //       <input type="text" value="Labs"/>
-    //   </div>
+
+
     //   <div>
     //       <input type="text" value="Subject1"/>
     //       <input type="date" value="date"/>

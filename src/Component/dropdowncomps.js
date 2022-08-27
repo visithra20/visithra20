@@ -21,12 +21,15 @@ const Liststyle = styled.span`
     }
 `
 
+
+
 const examtypelist = ["Internal","Model","Semester"];
 
 
-export const ExamType = () => {
+export const ExamType = ({hidden = false}) => {
+   
   return (
-    <ExamTypeBox name="Dropdown" style = {{
+    <ExamTypeBox hidden={hidden} name="Dropdown" style = {{
         width: "1090px"
         }}>
         {examtypelist.map((e,index)=>{
@@ -36,9 +39,9 @@ export const ExamType = () => {
     </ExamTypeBox>
   );
 };
-export const Department  = () => {
+export const Department  = ({hidden = false}) => {
     return (
-      <ExamTypeBox name="Dropdown" style = {{
+      <ExamTypeBox hidden={hidden} name="Dropdown" style = {{
           width: "344px"
           }}>
           {examtypelist.map((e,index)=>{
@@ -48,9 +51,9 @@ export const Department  = () => {
       </ExamTypeBox>
     );
   };
-  export const CourseCode= () => {
+  export const CourseCode= ({hidden = false}) => {
     return (
-      <ExamTypeBox name="Dropdown" style = {{
+      <ExamTypeBox hidden={hidden} name="Dropdown" style = {{
           width: "181px"
           }}>
           {examtypelist.map((e,index)=>{
@@ -60,9 +63,9 @@ export const Department  = () => {
       </ExamTypeBox>
     );
   };
-  export const Branch= () => {
+  export const Branch= ({hidden = false}) => {
     return (
-      <ExamTypeBox name="Dropdown" style = {{
+      <ExamTypeBox hidden={hidden} name="Dropdown" style = {{
           width: "344px"
           }}>
           {examtypelist.map((e,index)=>{
@@ -71,10 +74,10 @@ export const Department  = () => {
           
       </ExamTypeBox>
     );
-  };
-  export const Subject= () => {
+  }; 
+  export const Subject= ({hidden = false}) => {
     return (
-      <ExamTypeBox name="Dropdown" style = {{
+      <ExamTypeBox hidden={hidden} name="Dropdown" style = {{
           width: "177px"
           }}>
           {examtypelist.map((e,index)=>{
