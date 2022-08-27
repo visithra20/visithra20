@@ -5,6 +5,16 @@ import { Imgcomp } from "./Reusecomp/Imgcomp";
 import { Textcomp } from "./Reusecomp/Textcomp";
 import { useRouter } from "next/router";
 import { Inputcomp } from "./Reusecomp/Inputcomp";
+import dropdownicon from "../../images/dropdownbtn.png";
+
+const dropdownstyle = {
+  border: "1px solid #e8e8ea",
+  borderRadius: "5px",
+  padding: "20px 0 20px 24px",
+  margin: "10px 30px 0 0",
+  width: "330px",
+  color: "#A5A3A9",
+};
 
 export const Addschedule = () => {
   const Router = useRouter();
@@ -22,7 +32,7 @@ export const Addschedule = () => {
           onclick={handleback}
         />
         <Textcomp
-          value="Edit schedule"
+          value="Create new schedule"
           cssStyles={{
             fontWeight: 600,
             fontSize: "24px",
@@ -31,11 +41,59 @@ export const Addschedule = () => {
         />
       </Box>
 
-      <Box name="scheduleform">
-        <Box name="toprow">
-          <Box name = "Branch">
-            
+      <Box
+        name="scheduleform"
+        cssStyle={{
+          backgroundColor: "#fbfbfb",
+          padding: "40px 50px",
+          marginTop: "20px",
+        }}
+      >
+        <Box name="toprow" cssStyle={{ display: "flex" }}>
+          <Box name="Branch">
+            <Textcomp Comp="div" value="Branch" />
+            <Box name="branchdropdown" cssStyle={dropdownstyle}>
+              <Textcomp value="B.E" />
+              <Imgcomp source={dropdownicon} alternative="dropdown" />
+            </Box>
           </Box>
+          <Box name="Department">
+            <Textcomp Comp="div" value="Department" />
+            <Box name="branchdropdown" cssStyle={dropdownstyle}>
+              <Textcomp value="EEE" />
+              <Imgcomp source={dropdownicon} alternative="dropdown" />
+            </Box>
+          </Box>
+          <Box name="Semester">
+            <Textcomp Comp="div" value="Semester" />
+            <Inputcomp
+              cssStyles={{
+                ...dropdownstyle,
+                margin: "10px 0 0 0",
+                backgroundColor: "#fbfbfb",
+                fontSize: "14px",
+              }}
+              type="text"
+            />
+          </Box>
+        </Box>
+
+        <Box name="secondrow" cssStyle={{marginTop:"30px"}}>
+          <Textcomp Comp="div" value="Exam type" />
+          <Box 
+          name = "exametypedropdown" 
+          cssStyle={{
+                ...dropdownstyle,
+                width: "98%",
+                padding: "20px 0 20px 24px"
+            }}> 
+          <Textcomp
+            value={"Semester"}
+          />
+              <Imgcomp source={dropdownicon} alternative="dropdown" />
+          </Box>
+         
+
         </Box>
       </Box>
     </Box>
