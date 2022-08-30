@@ -62,7 +62,7 @@ export const Addschedule = () => {
         }}
       >
         <Toprow />
-
+{/* 
         <Box name="secondrow" cssStyle={{ marginTop: "30px" }}>
           <Textcomp Comp="div" value="Exam type" />
           <Box
@@ -78,7 +78,7 @@ export const Addschedule = () => {
             <Imgcomp source={dropdownicon} alternative="dropdown" />
           </Box>
           <ExamType hidden={ishidden}/>
-        </Box>
+        </Box> */}
 
 
         <Box name="Thirdrow" cssStyle={{ marginTop: "30px", display: "flex" }}>
