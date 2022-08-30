@@ -1,29 +1,14 @@
 import React,{useState} from "react";
-import { Box } from "./Reusecomp/Box";
-import backbutn from "../../images/backbtn.png";
-import { Imgcomp } from "./Reusecomp/Imgcomp";
-import { Textcomp } from "./Reusecomp/Textcomp";
 import { useRouter } from "next/router";
-import { Inputcomp } from "./Reusecomp/Inputcomp";
-import dropdownicon from "../../images/dropdownbtn.png";
-import {ExamType,Department,Branch} from "./dropdowncomps";
+import { Box } from "../Reusecomp/Box";
+import backbutn from "../../../images/backbtn.png";
+import { Imgcomp } from "../Reusecomp/Imgcomp";
+import { Textcomp } from "../Reusecomp/Textcomp";
+import { Inputcomp } from "../Reusecomp/Inputcomp";
 
-const dropdownstyle = {
-  border: "1px solid #e8e8ea",
-  borderRadius: "5px",
-  padding: "20px 0 20px 24px",
-  margin: "10px 30px 0 0",
-  width: "330px",
-  color: "#A5A3A9",
-};
+import { Toprow } from "./Toprow";
 
-const timepickerstyle = {
-  border: "1px solid #E8E8E8",
-  borderRadius: "5px",
-  width: "70px",
-  padding: "17px 16px",
-  margin: "20px 15px",
-};
+
 
 export const Addschedule = () => {
   const Router = useRouter();
@@ -38,11 +23,20 @@ export const Addschedule = () => {
   const changeHidden = ()=>{
     sethidden(!ishidden)
   }
+
+  const timepickerstyle = {
+    border: "1px solid #E8E8E8",
+    borderRadius: "5px",
+    width: "70px",
+    padding: "17px 16px",
+    margin: "20px 15px",
+  };
   
   return (
     <Box cssStyle={{ height: "1000px", padding: "35px 122px" }}>
-      <Box name="backtoland" 
-            onclick = {changeHidden}>
+
+      
+      <Box name="backtoland" >
         <Imgcomp
           source={backbutn}
           alternative="backbutton"
@@ -57,7 +51,7 @@ export const Addschedule = () => {
             marginLeft: "20px",
           }}
         />
-      </Box>
+      </Box>  
 
       <Box
         name="scheduleform"
@@ -67,42 +61,7 @@ export const Addschedule = () => {
           marginTop: "20px",
         }}
       >
-        <Box name="toprow" cssStyle={{ display: "flex" }}>
-          <Box name="Branch">
-            <Textcomp Comp="div" value="Branch" />
-            <Box name="branchdropdown" cssStyle={dropdownstyle} 
-            onclick = {changeHidden}>
-              <Textcomp value="B.E" />
-              <Imgcomp source={dropdownicon} alternative="dropdown" />
-            </Box>
-            <Branch hidden={ishidden} />
-          </Box>
-
-
-          <Box name="Department" >
-            <Textcomp Comp="div" value="Department" />
-            <Box name="branchdropdown" cssStyle={dropdownstyle} 
-            onclick = {changeHidden}>
-              <Textcomp value="EEE" />
-              <Imgcomp source={dropdownicon} alternative="dropdown" />
-            </Box>
-            <Department hidden={ishidden}/>
-          </Box>
-
-
-          <Box name="Semester">
-            <Textcomp Comp="div" value="Semester" />
-            <Inputcomp
-              cssStyles={{
-                ...dropdownstyle,
-                margin: "10px 0 0 0",
-                backgroundColor: "#fbfbfb",
-                fontSize: "14px",
-              }}
-              type="text"
-            />
-          </Box>
-        </Box>
+        <Toprow />
 
         <Box name="secondrow" cssStyle={{ marginTop: "30px" }}>
           <Textcomp Comp="div" value="Exam type" />
@@ -135,12 +94,12 @@ export const Addschedule = () => {
                   marginRight: "7px",
                 }}
               />
-              <Inputcomp type="number" value="09" cssStyles={timepickerstyle} />
-              <Inputcomp type="number" value="30" cssStyles={timepickerstyle} />
+              <Inputcomp type="number"  cssStyles={timepickerstyle} />
+              <Inputcomp type="number"  cssStyles={timepickerstyle} />
               <Inputcomp type="number" cssStyles={timepickerstyle} />
               <Textcomp value="to" />
-              <Inputcomp type="number" value="12" cssStyles={timepickerstyle} />
-              <Inputcomp type="number" value="30" cssStyles={timepickerstyle} />
+              <Inputcomp type="number"  cssStyles={timepickerstyle} />
+              <Inputcomp type="number"  cssStyles={timepickerstyle} />
               <Inputcomp type="number"  cssStyles={timepickerstyle} />
               <Textcomp value="3 hours" />
             </Box>
@@ -154,12 +113,12 @@ export const Addschedule = () => {
                   marginRight: "7px",
                 }}
               />
-              <Inputcomp type="number" value="09" cssStyles={timepickerstyle} />
-              <Inputcomp type="number" value="30" cssStyles={timepickerstyle} />
+              <Inputcomp type="number"  cssStyles={timepickerstyle} />
+              <Inputcomp type="number"  cssStyles={timepickerstyle} />
               <Inputcomp type="number"  cssStyles={timepickerstyle} />
               <Textcomp value="to" />
-              <Inputcomp type="number" value="12" cssStyles={timepickerstyle} />
-              <Inputcomp type="number" value="30" cssStyles={timepickerstyle} />
+              <Inputcomp type="number"  cssStyles={timepickerstyle} />
+              <Inputcomp type="number"  cssStyles={timepickerstyle} />
               <Inputcomp type="number" cssStyles={timepickerstyle} />
               <Textcomp value="3 hours" />
             </Box>
@@ -169,7 +128,6 @@ export const Addschedule = () => {
                 <Textcomp Comp="div" value="subjects" />
                 <Inputcomp
                   type="text"
-                  value="5"
                   cssStyles={{
                     padding: "20px 24px",
                     border: "1px solid #E8E8EA",
@@ -182,7 +140,7 @@ export const Addschedule = () => {
                 <Textcomp Comp="div" value="Labs" />
                 <Inputcomp
                   type="text"
-                  value="2"
+                  
                   cssStyles={{
                     padding: "20px 24px",
                     border: "1px solid #E8E8EA",

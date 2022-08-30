@@ -16,16 +16,18 @@ export const Landingpage = () => {
     <Box
       name="landingpage"
       cssStyle={{
-        padding: "88px 500px 0 500px",
-        marginBottom: "150px",
+        padding: "12% 35% 0 35%",
+        marginBottom: "11%",
+        position: "relative"
       }}
     >
-      <Imgcomp source={landingpage} alternative="landing page" />
+      <Imgcomp source={landingpage} alternative="landing page" cssStyles={{
+          // paddingTop:
+        }}/>
       <Box
         cssStyle={{
           position: "absolute",
-          left: "520px",
-          top: "564px",
+          bottom: "-20px",
         }}
       >
         <Textcomp

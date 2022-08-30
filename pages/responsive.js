@@ -1,16 +1,19 @@
 import React from "react";
 import { Header } from "../src/Component/Header";
 import { Footer } from "../src/Component/Footer";
-import { Addschedule } from "../src/Component/Schedule1/Addschedule";
+import { Landingpage } from "../src/Component/Landingpage";
 
-const Createschedule = ()=>{
+
+const responsive = ()=>{
     return (
         <>
             <Header />
-            <Addschedule />
+            <Landingpage />
             <Footer />
+            
+
         </>
-    );
+    )
 }
 
-export default Createschedule;
+export default responsive;

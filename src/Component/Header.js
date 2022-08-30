@@ -16,6 +16,8 @@ export const Header = () => {
     <Box
       name="header"
       cssStyle={{
+        position: "fixed",
+        zIndex: "100",
         backgroundColor: "#5375E2",
         width: "100%",
         display: "flex",
@@ -25,8 +27,8 @@ export const Header = () => {
       <Imgcomp
         alternative="logo"
         cssStyles={{
-          width: "53px",
-          height: "52px",
+          width: "3%",
+          height: "3%",
           padding: "21px 20px 23px 27px",
         }}
         source={logo}
