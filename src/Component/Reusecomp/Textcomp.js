@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Textcomp = ({Comp = "span",cssStyles,value})=>{
+export const Textcomp = ({Comp = "span",cssStyles,value,onclick})=>{
     return (
 
-        <Comp style = {cssStyles}>
+        <Comp style = {cssStyles} onClick = {onclick}>
 
             {value}
         </Comp>

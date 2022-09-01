@@ -1,14 +1,14 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { Box } from "../Reusecomp/Box";
 import backbutn from "../../../images/backbtn.png";
 import { Imgcomp } from "../Reusecomp/Imgcomp";
 import { Textcomp } from "../Reusecomp/Textcomp";
-import { Inputcomp } from "../Reusecomp/Inputcomp";
-
 import { Toprow } from "./Toprow";
-
-
+import { Secondrow } from "./Secondrow";
+import { Thirdrow } from "./Thirdrow";
+import { Subjectlist } from "./Subjectlist";
+import formdata from "../../../Dataforcreatesche.js";
 
 export const Addschedule = () => {
   const Router = useRouter();
@@ -16,27 +16,16 @@ export const Addschedule = () => {
     Router.push("/");
   };
 
-  const [ishidden,sethidden] = useState(true);
- 
+  const [branch, setBranch] = useState("--select--");
+  const [department, setDepartment] = useState("--select--");
+  const [semester, setSemester] = useState(0);
 
+  // console.log(formdata.exams.semester);
+  // console.log(semester);
 
-  const changeHidden = ()=>{
-    sethidden(!ishidden)
-  }
-
-  const timepickerstyle = {
-    border: "1px solid #E8E8E8",
-    borderRadius: "5px",
-    width: "70px",
-    padding: "17px 16px",
-    margin: "20px 15px",
-  };
-  
   return (
-    <Box cssStyle={{ height: "1000px", padding: "35px 122px" }}>
-
-      
-      <Box name="backtoland" >
+    <Box cssStyle={{ padding: "125px 122px 35px 122px " }}>
+      <Box name="backtoland">
         <Imgcomp
           source={backbutn}
           alternative="backbutton"
@@ -51,7 +40,7 @@ export const Addschedule = () => {
             marginLeft: "20px",
           }}
         />
-      </Box>  
+      </Box>
 
       <Box
         name="scheduleform"
@@ -61,118 +50,53 @@ export const Addschedule = () => {
           marginTop: "20px",
         }}
       >
-        <Toprow />
-{/* 
-        <Box name="secondrow" cssStyle={{ marginTop: "30px" }}>
-          <Textcomp Comp="div" value="Exam type" />
-          <Box
-            name="examtypedropdown"
-            cssStyle={{
-              ...dropdownstyle,
-              width: "98%",
-              padding: "20px 0 20px 24px",
-            }}
-            onclick = {changeHidden}
-          >
-            <Textcomp value={"Semester"} />
-            <Imgcomp source={dropdownicon} alternative="dropdown" />
-          </Box>
-          <ExamType hidden={ishidden}/>
-        </Box> */}
+        <Toprow
+          branchdata={formdata.branchanddep}
+          branch={branch}
+          setBranch={setBranch}
+          department={department}
+          setDepartment={setDepartment}
+          semester={semester}
+          setSemester={setSemester}
+        />
+        <Secondrow
+          examdata = {formdata.exams.semester}
+          branch={branch}
+          department={department}
+          semester={semester}
 
+        />
+        <Thirdrow />
+        <Subjectlist />
+      </Box>
 
-        <Box name="Thirdrow" cssStyle={{ marginTop: "30px", display: "flex" }}>
-          <Box name="Timerange">
-            <Textcomp Comp="div" value="Time Range" />
-            <Box name="forenoon">
-              <Textcomp
-                value="FN"
-                cssStyles={{
-                  fontWeight: "700",
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  marginRight: "7px",
-                }}
-              />
-              <Inputcomp type="number"  cssStyles={timepickerstyle} />
-              <Inputcomp type="number"  cssStyles={timepickerstyle} />
-              <Inputcomp type="number" cssStyles={timepickerstyle} />
-              <Textcomp value="to" />
-              <Inputcomp type="number"  cssStyles={timepickerstyle} />
-              <Inputcomp type="number"  cssStyles={timepickerstyle} />
-              <Inputcomp type="number"  cssStyles={timepickerstyle} />
-              <Textcomp value="3 hours" />
-            </Box>
-            <Box name="afternoon">
-              <Textcomp
-                value="AN"
-                cssStyles={{
-                  fontWeight: "700",
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  marginRight: "7px",
-                }}
-              />
-              <Inputcomp type="number"  cssStyles={timepickerstyle} />
-              <Inputcomp type="number"  cssStyles={timepickerstyle} />
-              <Inputcomp type="number"  cssStyles={timepickerstyle} />
-              <Textcomp value="to" />
-              <Inputcomp type="number"  cssStyles={timepickerstyle} />
-              <Inputcomp type="number"  cssStyles={timepickerstyle} />
-              <Inputcomp type="number" cssStyles={timepickerstyle} />
-              <Textcomp value="3 hours" />
-            </Box>
-
-            <Box name="subjectsandlab" cssStyle={{display:"flex"}}>
-              <Box name="subject" >
-                <Textcomp Comp="div" value="subjects" />
-                <Inputcomp
-                  type="text"
-                  cssStyles={{
-                    padding: "20px 24px",
-                    border: "1px solid #E8E8EA",
-                    borderRadius: "5px",
-                    margin: "10px 30px 0 0"
-                  }}
-                />
-              </Box>
-              <Box name="lab" >
-                <Textcomp Comp="div" value="Labs" />
-                <Inputcomp
-                  type="text"
-                  
-                  cssStyles={{
-                    padding: "20px 24px",
-                    border: "1px solid #E8E8EA",
-                    borderRadius: "5px",
-                    marginTop: "10px"
-                  }}
-                />
-              </Box>
-            </Box>
-
-            
-
-
-          </Box>
-        </Box>
+      <Box
+        name="button"
+        cssStyle={{
+          textAlign: "right",
+          marginTop: "50px",
+        }}
+      >
+        <Textcomp
+          Comp="span"
+          cssStyles={{
+            fontWeight: 400,
+            color: "#fff",
+            fontSize: "16px",
+            padding: "10px 50px 12px 50px",
+            backgroundColor: "#5375E2",
+            borderRadius: "5px",
+            lineHeight: "22px",
+          }}
+          value="Save"
+        />
       </Box>
     </Box>
-
-
-
-    //   <div>
-    //       <input type="text" value="Subject1"/>
-    //       <input type="date" value="date"/>
-    //       <input type="button" value="FN"/>
-    //       <input type="button" value="AN"/>
-
-    //   </div>
-    //   <div>
-    //       <input type="text" value="Lab1"/>
-    //       <input type="date" value="date"/>
-    //       <input type="button" value="FN"/>
-    //       <input type="button" value="AN"/>
-    //   </div></>
   );
 };
+
+// const [ishidden,sethidden] = useState(true);
+
+// const changeHidden = ()=>{
+//   sethidden(!ishidden)
+// }

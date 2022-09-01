@@ -1,9 +1,9 @@
 import React from "react";
-import { Box } from "./Reusecomp/Box";
-import { Textcomp } from "./Reusecomp/Textcomp";
-import { Imgcomp } from "./Reusecomp/Imgcomp";
-import landingpage from "../../images/landingpage.png";
-import plusbutton from "../../images/plusbutton.png";
+import { Box } from "../Reusecomp/Box";
+import { Textcomp } from "../Reusecomp/Textcomp";
+import { Imgcomp } from "../Reusecomp/Imgcomp";
+import landingpage from "../../../images/landingpage.png";
+import plusbutton from "../../../images/plusbutton.png";
 import { useRouter } from "next/router";
 
 export const Landingpage = () => {
