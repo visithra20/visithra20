@@ -27,8 +27,7 @@ export const Addschedule = () => {
   let labList = {};
   formdata.exams.semester[semester][department] !== undefined &&
     formdata.exams.semester[semester][department].map((e) => {
-      // console.log(e);
-      // console.log(e.subjects);
+
       if (e.exam === activeexam) {
         // console.log(e);
         subjectList = e.subjects;
@@ -36,8 +35,6 @@ export const Addschedule = () => {
       }
       // subjectList = e.subjects;
     });
-  // console.log(subjectList);
-  // console.log(labList);
 
 
   return (
@@ -73,7 +70,7 @@ export const Addschedule = () => {
           setBranch={setBranch}
           department={department}
           setDepartment={setDepartment}
-          semester={semester}
+          semester={semester+1}
           setSemester={setSemester}
           setactiveexam={setactiveexam}
         />

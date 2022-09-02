@@ -6,6 +6,8 @@ import { Imgcomp } from "../Reusecomp/Imgcomp";
 import { dropdownstyle } from "./styledcomp";
 import dropdownicon from "../../../images/dropdownbtn.png";
 import calender from "../../../images/calender.png";
+import { Subjectcomp } from "./Subjectcomp";
+import { Labcomp } from "./Labcomp";
 
 export const Subjectlist = ({
   subjectList,
@@ -15,19 +17,18 @@ export const Subjectlist = ({
   labCount,
   setlabcount,
 }) => {
+  useEffect(
+    (e) => {
+      subjectList.length !== undefined
+        ? setsubjectcount(subjectList.length)
+        : setsubjectcount(0);
+    },
+    [subjectList]
+  );
 
-  useEffect((()=>{
-     subjectList.subjectcode !== undefined
-    ? setsubjectcount(subjectList.subjectcode.length)
-    : setsubjectcount(0);
-  }),[subjectList])
-
-  useEffect((()=>{
-    labList.labcode !== undefined
-    ? setlabcount(labList.labcode.length)
-    : setlabcount(0);
- }),[labList])
-
+  useEffect(() => {
+    labList.length !== undefined ? setlabcount(labList.length) : setlabcount(0);
+  }, [labList]);
 
   return (
     <Box name="subjectlist">
@@ -60,127 +61,15 @@ export const Subjectlist = ({
         </Box>
       </Box>
 
-{/* here */}
-
-
-
-
-      <Box name="subject1" cssStyle={{ marginTop: "30px" }}>
-        <Textcomp Comp="div" value="Subject1" />
-
-        <Box
-          name="sublistinp"
-          cssStyle={{ display: "flex", flexDirection: "row" }}
-        >
-          <Box
-            name="subcode"
-            cssStyle={{
-              ...dropdownstyle,
-              width: "15%",
-              padding: "20px 0 20px 24px",
-              position: "relative",
-            }}
-            // onclick = {changeHidden}
-          >
-            <Textcomp value={"19QSA011"} />
-            <Imgcomp
-              source={dropdownicon}
-              alternative="dropdown"
-              cssStyles={{ position: "absolute", right: "10%", bottom: "40%" }}
-            />
-          </Box>
-
-          <Box
-            name="subtitle"
-            cssStyle={{
-              ...dropdownstyle,
-              width: "35%",
-              padding: "20px 0 20px 24px",
-              backgroundColor: "#F2F2F2",
-              color: "#ABA9AE",
-            }}
-            // onclick = {changeHidden}
-          >
-            <Textcomp value={"Measurement and Instrumentation"} />
-          </Box>
-          {/* <ExamType hidden={ishidden}/> */}
-
-          <Box
-            name="subdate"
-            cssStyle={{
-              ...dropdownstyle,
-              width: "25%",
-              padding: "20px 0 20px 24px",
-              position: "relative",
-            }}
-            // onclick = {changeHidden}
-          >
-            <Textcomp value={"22/08/2022"} />
-            <Imgcomp
-              source={calender}
-              alternative="dropdown"
-              cssStyles={{ position: "absolute", right: "8%", bottom: "30%" }}
-            />
-          </Box>
-
-          <Box
-            name="fnORan"
-            cssStyle={{ display: "flex", flexDirection: "row" }}
-          >
-            <Box
-              name="button"
-              cssStyle={{
-                color: "#fff",
-                backgroundColor: "#fff",
-                display: "flex",
-                width: "98%",
-                border: "1px solid #5375E2",
-                borderRadius: "5px",
-                margin: "20px 20px 20px 0",
-              }}
-            >
-              <Textcomp
-                Comp="span"
-                cssStyles={{
-                  fontWeight: 400,
-                  color: "#5375E2",
-                  fontSize: "16px",
-                  padding: "10px 15px 8px 15px",
-                  lineHeight: "22px",
-                }}
-                value="FN"
-              />
-            </Box>
-
-            <Box
-              name="button"
-              cssStyle={{
-                color: "#fff",
-                backgroundColor: "#fff",
-                display: "flex",
-                width: "98%",
-                border: "1px solid #5375E2",
-                borderRadius: "5px",
-                margin: "20px 0 20px 0",
-              }}
-            >
-              <Textcomp
-                Comp="span"
-                cssStyles={{
-                  fontWeight: 400,
-                  color: "#5375E2",
-                  fontSize: "16px",
-                  padding: "10px 15px 8px 15px",
-                  lineHeight: "22px",
-                }}
-                value="AN"
-              />
-            </Box>
-          </Box>
-        </Box>
-      </Box>
+      {/* here */}
 
       
+            {subjectList.length !== undefined ? subjectList.map((subjects,i)=><Subjectcomp subjectcode = {subjects[0]} subject = {subjects[1]} key = {i} index = {i} />)
+        : <></> }
+      
+        {/* <Subjectcomp subjectList={subjectList} /> */}
+      {/* till */}
+
       <Textcomp
         Comp="div"
         value="Lab"
@@ -192,235 +81,10 @@ export const Subjectlist = ({
         }}
       />
 
-      <Box name="Lab" cssStyle={{ marginTop: "30px" }}>
-        <Textcomp Comp="div" value="Lab1" />
-
-        <Box
-          name="lablistinp"
-          cssStyle={{ display: "flex", flexDirection: "row" }}
-        >
-          <Box
-            name="labcode"
-            cssStyle={{
-              ...dropdownstyle,
-              width: "15%",
-              padding: "20px 0 20px 24px",
-              position: "relative",
-            }}
-            // onclick = {changeHidden}
-          >
-            <Textcomp value="19QSA011" />
-            <Imgcomp
-              source={dropdownicon}
-              alternative="dropdown"
-              cssStyles={{ position: "absolute", right: "10%", bottom: "40%" }}
-            />
-          </Box>
-
-          <Box
-            name="labtitle"
-            cssStyle={{
-              ...dropdownstyle,
-              width: "35%",
-              padding: "20px 0 20px 24px",
-              backgroundColor: "#F2F2F2",
-              color: "#ABA9AE",
-            }}
-            // onclick = {changeHidden}
-          >
-            <Textcomp value={"Measurement and Instrumentation"} />
-          </Box>
-          {/* <ExamType hidden={ishidden}/> */}
-
-          <Box
-            name="labdate"
-            cssStyle={{
-              ...dropdownstyle,
-              width: "25%",
-              padding: "20px 0 20px 24px",
-              position: "relative",
-            }}
-            // onclick = {changeHidden}
-          >
-            <Textcomp value={"05/08/2022"} />
-            <Imgcomp
-              source={calender}
-              alternative="dropdown"
-              cssStyles={{ position: "absolute", right: "8%", bottom: "30%" }}
-            />
-          </Box>
-
-          <Box
-            name="fnORan"
-            cssStyle={{ display: "flex", flexDirection: "row" }}
-          >
-            <Box
-              name="button"
-              cssStyle={{
-                color: "#fff",
-                backgroundColor: "#fff",
-                display: "flex",
-                width: "98%",
-                border: "1px solid #5375E2",
-                borderRadius: "5px",
-                margin: "20px 20px 20px 0",
-              }}
-            >
-              <Textcomp
-                Comp="span"
-                cssStyles={{
-                  fontWeight: 400,
-                  color: "#5375E2",
-                  fontSize: "16px",
-                  padding: "10px 15px 8px 15px",
-                  lineHeight: "22px",
-                }}
-                value="FN"
-              />
-            </Box>
-
-            <Box
-              name="button"
-              cssStyle={{
-                color: "#fff",
-                backgroundColor: "#fff",
-                display: "flex",
-                width: "98%",
-                border: "1px solid #5375E2",
-                borderRadius: "5px",
-                margin: "20px 0 20px 0",
-              }}
-            >
-              <Textcomp
-                Comp="span"
-                cssStyles={{
-                  fontWeight: 400,
-                  color: "#5375E2",
-                  fontSize: "16px",
-                  padding: "10px 15px 8px 15px",
-                  lineHeight: "22px",
-                }}
-                value="AN"
-              />
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-
-      <Box name="lab2" cssStyle={{ marginTop: "30px" }}>
-        <Textcomp Comp="div" value="Lab2" />
-
-        <Box
-          name="lablistinp"
-          cssStyle={{ display: "flex", flexDirection: "row" }}
-        >
-          <Box
-            name="labcode"
-            cssStyle={{
-              ...dropdownstyle,
-              width: "15%",
-              padding: "20px 0 20px 24px",
-              position: "relative",
-            }}
-            // onclick = {changeHidden}
-          >
-            <Textcomp value="19HSM002" />
-            <Imgcomp
-              source={dropdownicon}
-              alternative="dropdown"
-              cssStyles={{ position: "absolute", right: "10%", bottom: "40%" }}
-            />
-          </Box>
-
-          <Box
-            name="labtitle"
-            cssStyle={{
-              ...dropdownstyle,
-              width: "35%",
-              padding: "20px 0 20px 24px",
-              backgroundColor: "#F2F2F2",
-              color: "#ABA9AE",
-            }}
-            // onclick = {changeHidden}
-          >
-            <Textcomp value={"Electrical Machines"} />
-          </Box>
-          {/* <ExamType hidden={ishidden}/> */}
-
-          <Box
-            name="labdate"
-            cssStyle={{
-              ...dropdownstyle,
-              width: "25%",
-              padding: "20px 0 20px 24px",
-              position: "relative",
-            }}
-            // onclick = {changeHidden}
-          >
-            <Textcomp value={"07/08/2022"} />
-            <Imgcomp
-              source={calender}
-              alternative="dropdown"
-              cssStyles={{ position: "absolute", right: "8%", bottom: "30%" }}
-            />
-          </Box>
-
-          <Box
-            name="fnORan"
-            cssStyle={{ display: "flex", flexDirection: "row" }}
-          >
-            <Box
-              name="button"
-              cssStyle={{
-                color: "#fff",
-                backgroundColor: "#fff",
-                display: "flex",
-                width: "98%",
-                border: "1px solid #5375E2",
-                borderRadius: "5px",
-                margin: "20px 20px 20px 0",
-              }}
-            >
-              <Textcomp
-                Comp="span"
-                cssStyles={{
-                  fontWeight: 400,
-                  color: "#5375E2",
-                  fontSize: "16px",
-                  padding: "10px 15px 8px 15px",
-                  lineHeight: "22px",
-                }}
-                value="FN"
-              />
-            </Box>
-
-            <Box
-              name="button"
-              cssStyle={{
-                color: "#fff",
-                backgroundColor: "#fff",
-                display: "flex",
-                width: "98%",
-                border: "1px solid #5375E2",
-                borderRadius: "5px",
-                margin: "20px 0 20px 0",
-              }}
-            >
-              <Textcomp
-                Comp="span"
-                cssStyles={{
-                  fontWeight: 400,
-                  color: "#5375E2",
-                  fontSize: "16px",
-                  padding: "10px 15px 8px 15px",
-                  lineHeight: "22px",
-                }}
-                value="AN"
-              />
-            </Box>
-          </Box>
-        </Box>
-      </Box>
+      {labList.length !== undefined ? labList.map((e,i)=><Labcomp labcode = {e[0]} key = {i} index = {i} lab={e[1]} />):<></>}
+        
+      
+      
     </Box>
   );
 };

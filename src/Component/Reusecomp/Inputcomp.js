@@ -1,8 +1,8 @@
 import React from "react";
 
 
-export const Inputcomp = ({type,value,cssStyles,onchange})=>{
+export const Inputcomp = ({type,value,cssStyles,onchange,min,max})=>{
     return(
-        <input type={type} style={cssStyles} value={value} onChange={onchange} />
+        <input type={type} style={cssStyles} min={min} max={max} value={value} onChange={onchange} />
     );
 }
