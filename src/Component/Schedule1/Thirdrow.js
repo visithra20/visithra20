@@ -8,7 +8,8 @@ import Dropdown from "./Dropdowncomp/Dropdownstyle";
 
 export const Thirdrow = ({ activeexam }) => {
   const [fnstartdrop, setfnstartdrop] = useState(true);
-  const [fnstart, setfnstart] = useState(["9", "00", "AM"]);
+  const [fnstart, setfnstart] = useState([9, 10, "AM"]);
+  const [fnend,setfnend] = useState([fnstart[0]+3,fnstart[1],(fnstart[0]+3 >=12 ? "PM":"AM")])
 
   const handlefnclick = () => {
     setfnstartdrop(!fnstartdrop);
@@ -74,11 +75,12 @@ export const Thirdrow = ({ activeexam }) => {
         </Box>
 
         <Textcomp value="to" />
-        <Inputcomp type="number" min="1" max="12" cssStyles={timepickerstyle} />
+        <Inputcomp type="number" min="1" max="12" value={fnend[0]} cssStyles={timepickerstyle} />
         <Inputcomp
           type="number"
           min="00"
           max="59"
+          value={fnend[1]}
           cssStyles={timepickerstyle}
         />
         <Box
@@ -89,7 +91,7 @@ export const Thirdrow = ({ activeexam }) => {
             position: "relative",
           }}
         >
-          <Textcomp value="AM" />
+          <Textcomp value={fnend[2]} />
 
 
     {/* drop       */}
@@ -131,8 +133,10 @@ export const Thirdrow = ({ activeexam }) => {
               marginRight: "7px",
             }}
           />
-          <Inputcomp type="number" cssStyles={timepickerstyle} />
-          <Inputcomp type="number" cssStyles={timepickerstyle} />
+          <Inputcomp type="number" min="1"
+          max="12" cssStyles={timepickerstyle} />
+          <Inputcomp type="number"min="00"
+          max="59" cssStyles={timepickerstyle} />
           <Box
             Comp="span"
             cssStyle={{

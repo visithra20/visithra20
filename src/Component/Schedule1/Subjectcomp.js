@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "../Reusecomp/Box";
 import { Textcomp } from "../Reusecomp/Textcomp";
 import calender from "../../../images/calender.png";
@@ -8,6 +8,18 @@ import dropdownicon from "../../../images/dropdownbtn.png";
 import { Inputcomp } from "../Reusecomp/Inputcomp";
 
 export const Subjectcomp = ({ subject, subjectcode, index }) => {
+
+  const [isfnactive, setisfnactive] = useState(false);
+  const [isanactive, setisanactive] = useState(false);
+
+  const changefncolor = ()=>{
+    setisanactive(isfnactive);
+    setisfnactive(!isfnactive);
+  }
+  const changeancolor = ()=>{
+    setisfnactive(isanactive);
+    setisanactive(!isanactive);
+  }
     
   return (
     <Box name={"subject" + (index + 1)} cssStyle={{ marginTop: "30px" }}>
@@ -63,19 +75,20 @@ export const Subjectcomp = ({ subject, subjectcode, index }) => {
             name="button"
             cssStyle={{
               color: "#fff",
-              backgroundColor: "#fff",
+              backgroundColor: isfnactive? "#5375E2":"#fff",
               display: "flex",
               width: "98%",
               border: "1px solid #5375E2",
               borderRadius: "5px",
               margin: "20px 20px 20px 0",
             }}
+            onclick={changefncolor}
           >
             <Textcomp
               Comp="span"
               cssStyles={{
                 fontWeight: 400,
-                color: "#5375E2",
+                color: isfnactive? "#fff":"#5375E2",
                 fontSize: "16px",
                 padding: "10px 15px 8px 15px",
                 lineHeight: "22px",
@@ -88,19 +101,20 @@ export const Subjectcomp = ({ subject, subjectcode, index }) => {
             name="button"
             cssStyle={{
               color: "#fff",
-              backgroundColor: "#fff",
+              backgroundColor: isanactive? "#5375E2":"#fff",
               display: "flex",
               width: "98%",
               border: "1px solid #5375E2",
               borderRadius: "5px",
               margin: "20px 0 20px 0",
             }}
+            onclick={changeancolor}
           >
             <Textcomp
               Comp="span"
               cssStyles={{
                 fontWeight: 400,
-                color: "#5375E2",
+                color: isanactive? "#fff":"#5375E2",
                 fontSize: "16px",
                 padding: "10px 15px 8px 15px",
                 lineHeight: "22px",
