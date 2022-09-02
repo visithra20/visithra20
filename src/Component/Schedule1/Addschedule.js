@@ -18,10 +18,27 @@ export const Addschedule = () => {
 
   const [branch, setBranch] = useState("--select--");
   const [department, setDepartment] = useState("--select--");
+  const [activeexam, setactiveexam] = useState("--select--");
   const [semester, setSemester] = useState(0);
+  const [subjectCount, setsubjectcount] = useState("0");
+  const [labCount, setlabcount] = useState("0");
 
-  // console.log(formdata.exams.semester);
-  // console.log(semester);
+  let subjectList = {};
+  let labList = {};
+  formdata.exams.semester[semester][department] !== undefined &&
+    formdata.exams.semester[semester][department].map((e) => {
+      // console.log(e);
+      // console.log(e.subjects);
+      if (e.exam === activeexam) {
+        // console.log(e);
+        subjectList = e.subjects;
+        labList = e.labs;
+      }
+      // subjectList = e.subjects;
+    });
+  // console.log(subjectList);
+  // console.log(labList);
+
 
   return (
     <Box cssStyle={{ padding: "125px 122px 35px 122px " }}>
@@ -58,16 +75,25 @@ export const Addschedule = () => {
           setDepartment={setDepartment}
           semester={semester}
           setSemester={setSemester}
+          setactiveexam={setactiveexam}
         />
         <Secondrow
-          examdata = {formdata.exams.semester}
-          branch={branch}
+          examdata={formdata.exams.semester}
           department={department}
+          activeexam={activeexam}
+          setactiveexam={setactiveexam}
           semester={semester}
+        />
+        <Thirdrow activeexam={activeexam} />
+        <Subjectlist
+          subjectList={subjectList}
+          labList={labList}
+          subjectCount={subjectCount}
+          setsubjectcount={setsubjectcount}
+          labCount = {labCount}
+          setlabcount = {setlabcount}
 
         />
-        <Thirdrow />
-        <Subjectlist />
       </Box>
 
       <Box
@@ -94,9 +120,3 @@ export const Addschedule = () => {
     </Box>
   );
 };
-
-// const [ishidden,sethidden] = useState(true);
-
-// const changeHidden = ()=>{
-//   sethidden(!ishidden)
-// }

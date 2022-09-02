@@ -14,7 +14,7 @@ const formdata = {
       {
         EEE: [
           {
-            exam: "Internals",
+            exam: "Semester",
             subjects: {
               subjectcode: [
                 "19QSA011",
@@ -66,6 +66,35 @@ const formdata = {
               ],
             },
           },
+
+          {
+            exam: "Internal",
+            subjects: {
+              subjectcode: [
+                "19QSA011M",
+                "19HSM002M",
+                "19ASR008M",
+                "19CTR105M",
+                "19MNS202M",
+              ],
+              subjectname: [
+                "Measurement and InstrumentationMod",
+                "Electrical MachinesMod",
+                "Power SystemsMod",
+                "MicrocontrollersMod",
+                "Control SystemsMod",
+              ],
+            },
+            labs: {
+              labcode: ["19QSA011M", "19HSM002M"],
+              labname: [
+                "Measurement and InstrumentationM",
+                "Electrical MachinesM",
+              ],
+            },
+          },
+
+
         ],
       },
     ],

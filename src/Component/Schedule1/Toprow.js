@@ -6,28 +6,9 @@ import { Imgcomp } from "../Reusecomp/Imgcomp";
 import { Inputcomp } from "../Reusecomp/Inputcomp";
 import dropdownicon from "../../../images/dropdownbtn.png";
 import { dropdownstyle } from "./styledcomp";
-import styled from "styled-components";
+import Dropdown from "./Dropdowncomp/Dropdownstyle";
 // import { Branch,Department } from "./dropdowncomps";
 // import {ExamType} from "./Dropdowncomp/ExamType";
-
-const Dropdown = styled.div`
-  position: absolute;
-  z-index: 2;
-  padding: 14px 0;
-  width: 356px;
-  background: #ffffff;
-  border: 1px solid #e8e8ea;
-  border-radius: 5px;
-  div {
-    padding: 6px 0 5px 26px;
-    font-size: 16px;
-    line-height: 116%;
-    &:hover {
-      background-color: #5375e2;
-      color: #fff;
-    }
-  }
-`;
 
 export const Toprow = ({
   branchdata,
@@ -36,7 +17,8 @@ export const Toprow = ({
   department,
   setDepartment,
   semester,
-  setSemester
+  setSemester,
+  setactiveexam
 }) => {
   // branches
 
@@ -50,6 +32,7 @@ export const Toprow = ({
     setBranch(e.target.innerHTML);
 
     setDepartment("--select--");
+    setactiveexam("--select--");
   };
 
   let branches = [];
@@ -78,6 +61,7 @@ export const Toprow = ({
   const handledropdownclickdep = (e) => {
     sethiddendepartment(!ishiddendepartment);
     setDepartment(e.target.innerHTML);
+    setactiveexam("--select--");
   };
 
   const changesemester = (e)=>{
