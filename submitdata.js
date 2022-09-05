@@ -5,5 +5,7 @@ let submitdata = {
     semester: "",
     subjectList: "",
     labList: "",
+    issubmit: false,
+    isalloted: false
 };
 export default submitdata;

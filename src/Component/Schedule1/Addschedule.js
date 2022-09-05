@@ -10,6 +10,8 @@ import { Thirdrow } from "./Thirdrow";
 import { Subjectlist } from "./Subjectlist";
 import formdata from "../../../Dataforcreatesche.js";
 import submitdata from "../../../submitdata";
+import { Popup1 } from "./Popup1";
+import totalschedule from "../../../totalschedule";
 
 export const Addschedule = () => {
   const Router = useRouter();
@@ -29,13 +31,12 @@ export const Addschedule = () => {
     fnstart[1],
     fnstart[0] + 3 >= 12 ? "PM" : "AM",
   ]);
+  const [pophidden,setpophidden] = useState(true);
   let subjectList = {};
   let labList = {};
 
-  useEffect(()=>{
-    
-  },[department,branch,activeexam]);
-  
+  useEffect(() => {}, [department, branch, activeexam]);
+
   formdata.exams.semester[semester][department] !== undefined &&
     formdata.exams.semester[semester][department].map((e) => {
       if (e.exam === activeexam) {
@@ -46,15 +47,17 @@ export const Addschedule = () => {
       // subjectList = e.subjects;
     });
 
-    const submitschedule = ()=>{
-      submitdata["branch"] = branch;
-      submitdata["department"] = department;
-      submitdata["activeexam"] = activeexam;
-      submitdata["semester"] = semester+1;
-      submitdata["labList"] = labList;
-
-    console.log(submitdata);
-    }
+  const submitschedule = (e) => {
+    submitdata.branch = branch;
+    submitdata.department = department;
+    submitdata.activeexam = activeexam;
+    submitdata.semester = semester + 1+"";
+    submitdata.labList = labList;
+    submitdata.issubmit = !submitdata.issubmit
+    setpophidden(!pophidden)
+    e.target.innerHTML === "Save" && totalschedule.push(submitdata);
+    //
+  };
 
   return (
     <Box cssStyle={{ padding: "125px 122px 35px 122px " }}>
@@ -122,9 +125,23 @@ export const Addschedule = () => {
         cssStyle={{
           textAlign: "right",
           marginTop: "50px",
+          position: "relative"
         }}
         onclick={submitschedule}
       >
+        <Popup1
+        branch = {branch}
+        semester={semester}
+        department={department}
+          hidden = {pophidden}
+          cssStyle={{
+            backgroundColor: "#fff",
+            boxShadow: "5px 10px 10px #e5e5e5",
+            position: "absolute",
+            padding: "3% 18% 7% 18%",
+            bottom: "30px"
+          }}
+        />
         <Textcomp
           Comp="span"
           cssStyles={{

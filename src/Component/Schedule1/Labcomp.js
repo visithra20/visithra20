@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "../Reusecomp/Box";
 import { Textcomp } from "../Reusecomp/Textcomp";
 import { Inputcomp } from "../Reusecomp/Inputcomp";
@@ -6,11 +6,13 @@ import calender from "../../../images/calender.png";
 import { dropdownstyle } from "./styledcomp";
 import { Imgcomp } from "../Reusecomp/Imgcomp";
 import dropdownicon from "../../../images/dropdownbtn.png";
+import submitdata from "../../../submitdata";
 
 
-export const Labcomp = ({labcode,lab,index}) => {
+export const Labcomp = ({labList,labcode,lab,index}) => {
   const [isfnactive, setisfnactive] = useState(false);
   const [isanactive, setisanactive] = useState(false);
+  const [date, setdate] = useState("");
 
   const changefncolor = ()=>{
     setisanactive(isfnactive);
@@ -20,7 +22,23 @@ export const Labcomp = ({labcode,lab,index}) => {
     setisfnactive(isanactive);
     setisanactive(!isanactive);
   }
-    
+  const changedate = (e) => {
+    setdate(e.target.value);
+  };
+  
+  useEffect(() => {
+    labList[index][2] = date;
+    submitdata["labList"] = labList;
+  }, [date]);
+
+  useEffect(()=>{
+    if(isanactive){
+      labList[index][3] = "AN";
+    } else if(isfnactive){
+      labList[index][3] = "FN";
+    }
+  },[isanactive,isfnactive]);
+
   return (
     <>
       
@@ -67,12 +85,14 @@ export const Labcomp = ({labcode,lab,index}) => {
 
           <Inputcomp 
         type = "date" 
+        value={date}
         cssStyles={{
             ...dropdownstyle,
             width: "25%",
             padding: "20px 24px",
             position: "relative",
           }}
+          onchange={changedate}
           />
 
           <Box

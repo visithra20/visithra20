@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "../Reusecomp/Box";
 import { Textcomp } from "../Reusecomp/Textcomp";
-import calender from "../../../images/calender.png";
 import { dropdownstyle } from "./styledcomp";
 import { Imgcomp } from "../Reusecomp/Imgcomp";
 import dropdownicon from "../../../images/dropdownbtn.png";

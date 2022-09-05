@@ -100,7 +100,7 @@ export const Subjectlist = ({
 
       {labList.length !== undefined ? (
         labList.map((e, i) => (
-          <Labcomp labcode={e[0]} key={i} index={i} lab={e[1]} />
+          <Labcomp labList={labList} labcode={e[0]} key={i} index={i} lab={e[1]} />
         ))
       ) : (
         <></>

@@ -19,6 +19,8 @@ const formdata = {
               ["19QSA011","Measurement and Instrumentation","",""],
               ["19HSM002", "Electrical Machines","",""],
               ["19ASR008", "Power Systems","",""],
+              ["19CTR105","Microcontrollers","",""],
+              ["19ASR008", "Power Systems","",""],
               ["19CTR105","Microcontrollers","",""]
             ],
             labs: [
