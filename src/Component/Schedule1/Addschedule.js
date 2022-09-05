@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Box } from "../Reusecomp/Box";
 import backbutn from "../../../images/backbtn.png";
@@ -9,6 +9,7 @@ import { Secondrow } from "./Secondrow";
 import { Thirdrow } from "./Thirdrow";
 import { Subjectlist } from "./Subjectlist";
 import formdata from "../../../Dataforcreatesche.js";
+import submitdata from "../../../submitdata";
 
 export const Addschedule = () => {
   const Router = useRouter();
@@ -22,12 +23,21 @@ export const Addschedule = () => {
   const [semester, setSemester] = useState(0);
   const [subjectCount, setsubjectcount] = useState("0");
   const [labCount, setlabcount] = useState("0");
-
+  const [fnstart, setfnstart] = useState([9, 30, "AM"]);
+  const [fnend, setfnend] = useState([
+    fnstart[0] + 3,
+    fnstart[1],
+    fnstart[0] + 3 >= 12 ? "PM" : "AM",
+  ]);
   let subjectList = {};
   let labList = {};
+
+  useEffect(()=>{
+    
+  },[department,branch,activeexam]);
+  
   formdata.exams.semester[semester][department] !== undefined &&
     formdata.exams.semester[semester][department].map((e) => {
-
       if (e.exam === activeexam) {
         // console.log(e);
         subjectList = e.subjects;
@@ -36,6 +46,15 @@ export const Addschedule = () => {
       // subjectList = e.subjects;
     });
 
+    const submitschedule = ()=>{
+      submitdata["branch"] = branch;
+      submitdata["department"] = department;
+      submitdata["activeexam"] = activeexam;
+      submitdata["semester"] = semester+1;
+      submitdata["labList"] = labList;
+
+    console.log(submitdata);
+    }
 
   return (
     <Box cssStyle={{ padding: "125px 122px 35px 122px " }}>
@@ -70,7 +89,7 @@ export const Addschedule = () => {
           setBranch={setBranch}
           department={department}
           setDepartment={setDepartment}
-          semester={semester+1}
+          semester={semester + 1}
           setSemester={setSemester}
           setactiveexam={setactiveexam}
         />
@@ -81,15 +100,20 @@ export const Addschedule = () => {
           setactiveexam={setactiveexam}
           semester={semester}
         />
-        <Thirdrow activeexam={activeexam} />
+        <Thirdrow
+          activeexam={activeexam}
+          fnstart={fnstart}
+          setfnstart={setfnstart}
+          fnend={fnend}
+          setfnend={setfnend}
+        />
         <Subjectlist
           subjectList={subjectList}
           labList={labList}
           subjectCount={subjectCount}
           setsubjectcount={setsubjectcount}
-          labCount = {labCount}
-          setlabcount = {setlabcount}
-
+          labCount={labCount}
+          setlabcount={setlabcount}
         />
       </Box>
 
@@ -99,6 +123,7 @@ export const Addschedule = () => {
           textAlign: "right",
           marginTop: "50px",
         }}
+        onclick={submitschedule}
       >
         <Textcomp
           Comp="span"

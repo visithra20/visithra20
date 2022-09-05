@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "../Reusecomp/Box";
 import { Textcomp } from "../Reusecomp/Textcomp";
 import { Inputcomp } from "../Reusecomp/Inputcomp";
@@ -17,14 +17,11 @@ export const Subjectlist = ({
   labCount,
   setlabcount,
 }) => {
-  useEffect(
-    () => {
-      subjectList.length !== undefined
-        ? setsubjectcount(subjectList.length)
-        : setsubjectcount(0);
-    },
-    [subjectList]
-  );
+  useEffect(() => {
+    subjectList.length !== undefined
+      ? setsubjectcount(subjectList.length)
+      : setsubjectcount(0);
+  }, [subjectList]);
 
   // useEffect(() => {
   //   if (subjectList.length !== undefined) {
@@ -34,7 +31,7 @@ export const Subjectlist = ({
   //   }
   // }, [subjectList]);
 
-  console.log({ subjectList });
+  // console.log({ subjectList });
 
   useEffect(() => {
     labList.length !== undefined ? setlabcount(labList.length) : setlabcount(0);
@@ -74,14 +71,15 @@ export const Subjectlist = ({
       {/* here */}
 
       {subjectList.length !== undefined ? (
-        subjectList.map((subjects, i) => (
-          <Subjectcomp
-            subjectcode={subjects[0]}
-            subject={subjects[1]}
-            key={i}
-            index={i}
-          />
-        ))
+        subjectList.map((subjects, i) => {
+          return (
+            <Subjectcomp
+              subjectList = {subjectList}
+              key={i}
+              index={i}
+            />
+          );
+        })
       ) : (
         <></>
       )}

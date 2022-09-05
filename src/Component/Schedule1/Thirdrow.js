@@ -6,10 +6,14 @@ import { Inputcomp } from "../Reusecomp/Inputcomp";
 import dropdownicon from "../../../images/dropdownbtn.png";
 import Dropdown from "./Dropdowncomp/Dropdownstyle";
 
-export const Thirdrow = ({ activeexam }) => {
+export const Thirdrow = ({
+  activeexam,
+  fnstart,
+  setfnstart,
+  fnend,
+  setfnend,
+}) => {
   const [fnstartdrop, setfnstartdrop] = useState(true);
-  const [fnstart, setfnstart] = useState([9, 10, "AM"]);
-  const [fnend,setfnend] = useState([fnstart[0]+3,fnstart[1],(fnstart[0]+3 >=12 ? "PM":"AM")])
 
   const handlefnclick = () => {
     setfnstartdrop(!fnstartdrop);
@@ -17,7 +21,7 @@ export const Thirdrow = ({ activeexam }) => {
 
   const changeanfn = (e) => {
     // console.log(e.target.innerHTML);
-    setfnstart([fnstart[0], fnstart[1], e.target.innerHTML])
+    setfnstart([fnstart[0], fnstart[1], e.target.innerHTML]);
   };
 
   const timepickerstyle = {
@@ -70,12 +74,18 @@ export const Thirdrow = ({ activeexam }) => {
             style={{ width: "100%", right: "0", bottom: "-160%" }}
           >
             <Textcomp Comp="div" value="AM" onclick={changeanfn} />
-            <Textcomp Comp="div" value="PM" onclick={changeanfn}/>
+            <Textcomp Comp="div" value="PM" onclick={changeanfn} />
           </Dropdown>
         </Box>
 
         <Textcomp value="to" />
-        <Inputcomp type="number" min="1" max="12" value={fnend[0]} cssStyles={timepickerstyle} />
+        <Inputcomp
+          type="number"
+          min="1"
+          max="12"
+          value={fnend[0]}
+          cssStyles={timepickerstyle}
+        />
         <Inputcomp
           type="number"
           min="00"
@@ -93,8 +103,7 @@ export const Thirdrow = ({ activeexam }) => {
         >
           <Textcomp value={fnend[2]} />
 
-
-    {/* drop       */}
+          {/* drop       */}
           <Dropdown
             hidden={true}
             style={{ width: "100%", right: "0", bottom: "-160%" }}
@@ -133,10 +142,20 @@ export const Thirdrow = ({ activeexam }) => {
               marginRight: "7px",
             }}
           />
-          <Inputcomp type="number" min="1"
-          max="12" cssStyles={timepickerstyle} />
-          <Inputcomp type="number"min="00"
-          max="59" cssStyles={timepickerstyle} />
+          <Inputcomp
+            type="number"
+            min="1"
+            max="12"
+            value="1"
+            cssStyles={timepickerstyle}
+          />
+          <Inputcomp
+            type="number"
+            min="00"
+            max="59"
+            value="30"
+            cssStyles={timepickerstyle}
+          />
           <Box
             Comp="span"
             cssStyle={{
@@ -147,8 +166,7 @@ export const Thirdrow = ({ activeexam }) => {
           >
             <Textcomp value="PM" />
 
-
-       {/* drop */}
+            {/* drop */}
             <Dropdown
               hidden={true}
               style={{ width: "100%", right: "0", bottom: "-160%" }}
@@ -158,8 +176,20 @@ export const Thirdrow = ({ activeexam }) => {
             </Dropdown>
           </Box>
           <Textcomp value="to" />
-          <Inputcomp type="number" cssStyles={timepickerstyle} />
-          <Inputcomp type="number" cssStyles={timepickerstyle} />
+          <Inputcomp
+            type="number"
+            min="1"
+            max="12"
+            value="4"
+            cssStyles={timepickerstyle}
+          />
+          <Inputcomp
+            type="number"
+            min="00"
+            max="59"
+            value="30"
+            cssStyles={timepickerstyle}
+          />
           <Box
             Comp="span"
             cssStyle={{
@@ -170,7 +200,7 @@ export const Thirdrow = ({ activeexam }) => {
           >
             <Textcomp value="PM" />
 
-      {/* drop */}
+            {/* drop */}
 
             <Dropdown
               hidden={true}
