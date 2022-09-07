@@ -4,10 +4,10 @@ import { Box } from "../Reusecomp/Box";
 import backbutn from "../../../images/backbtn.png";
 import { Imgcomp } from "../Reusecomp/Imgcomp";
 import { Textcomp } from "../Reusecomp/Textcomp";
-import { Toprow } from "./Toprow";
-import { Secondrow } from "./Secondrow";
-import { Thirdrow } from "./Thirdrow";
-import { Subjectlist } from "./Subjectlist";
+import { Toprow } from "../Schedule1/Toprow";
+import { Secondrow } from "../Schedule1/Secondrow";
+import { Thirdrow } from "../Schedule1/Thirdrow";
+import { Subjectlist } from "../Schedule1/Subjectlist";
 import formdata from "../../../Dataforcreatesche.js";
 import submitdata from "../../../submitdata";
 import { Popup1 } from "./Popup1";
@@ -18,13 +18,13 @@ export const Editschedule = ({selectedDataToEdit}) => {
   const handleback = () => {
     Router.push("/Landingpage");
   };
-  console.log(selectedDataToEdit);
-  const [branch, setBranch] = useState(selectedDataToEdit.branch);
-  const [department, setDepartment] = useState("--select--");
-  const [activeexam, setactiveexam] = useState("--select--");
-  const [semester, setSemester] = useState(0);
-  const [subjectCount, setsubjectcount] = useState("0");
-  const [labCount, setlabcount] = useState("0");
+  console.log(selectedDataToEdit.subjectList.length);
+  const [branch, setBranch] = useState(selectedDataToEdit.branch !== undefined ? selectedDataToEdit.branch: "--select--");
+  const [department, setDepartment] = useState(selectedDataToEdit.department !== undefined ? selectedDataToEdit.department: "--select--");
+  const [activeexam, setactiveexam] = useState(selectedDataToEdit.activeexam !== undefined ? selectedDataToEdit.activeexam: "--select--");
+  const [semester, setSemester] = useState(selectedDataToEdit.semester !== undefined? selectedDataToEdit.semester-1 : 0);
+  const [subjectCount, setsubjectcount] = useState(selectedDataToEdit.subjectList !== undefined ? selectedDataToEdit.subjectList.length : "0" );
+  const [labCount, setlabcount] = useState(selectedDataToEdit.labList !== undefined ? selectedDataToEdit.labList.length : "0");
   const [fnstart, setfnstart] = useState([9, 30, "AM"]);
   const [fnend, setfnend] = useState([
     fnstart[0] + 3,
@@ -32,20 +32,20 @@ export const Editschedule = ({selectedDataToEdit}) => {
     fnstart[0] + 3 >= 12 ? "PM" : "AM",
   ]);
   const [pophidden,setpophidden] = useState(true);
-  let subjectList = {};
-  let labList = {};
+  let subjectList = selectedDataToEdit.subjectList;
+  let labList = selectedDataToEdit.labList;
 
   useEffect(() => {}, [department, branch, activeexam]);
 
-  formdata.exams.semester[semester][department] !== undefined &&
-    formdata.exams.semester[semester][department].map((e) => {
-      if (e.exam === activeexam) {
-        // console.log(e);
-        subjectList = e.subjects;
-        labList = e.labs;
-      }
-      // subjectList = e.subjects;
-    });
+  // formdata.exams.semester[semester][department] !== undefined &&
+  //   formdata.exams.semester[semester][department].map((e) => {
+  //     if (e.exam === activeexam) {
+  //       // console.log(e);
+  //       subjectList = e.subjects;
+  //       labList = e.labs;
+  //     }
+  //     // subjectList = e.subjects;
+  //   });
 
   const submitschedule = (e) => {
     submitdata.branch = branch;
