@@ -13,13 +13,13 @@ import submitdata from "../../../submitdata";
 import { Popup1 } from "./Popup1";
 import demototalschedule from "../../../demototalschedule";
 
-export const Addschedule = () => {
+export const Editschedule = ({selectedDataToEdit}) => {
   const Router = useRouter();
   const handleback = () => {
-    Router.push("/");
+    Router.push("/Landingpage");
   };
-
-  const [branch, setBranch] = useState("--select--");
+  console.log(selectedDataToEdit);
+  const [branch, setBranch] = useState(selectedDataToEdit.branch);
   const [department, setDepartment] = useState("--select--");
   const [activeexam, setactiveexam] = useState("--select--");
   const [semester, setSemester] = useState(0);
@@ -69,7 +69,7 @@ export const Addschedule = () => {
           onclick={handleback}
         />
         <Textcomp
-          value="Create new schedule"
+          value="Edit schedule"
           cssStyles={{
             fontWeight: 600,
             fontSize: "24px",

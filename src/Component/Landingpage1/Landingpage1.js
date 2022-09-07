@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "../Reusecomp/Box";
 import { Textcomp } from "../Reusecomp/Textcomp";
 import { Imgcomp } from "../Reusecomp/Imgcomp";
-import totalschedule from "../../../totalschedule";
 import demototalschedule from "../../../demototalschedule";
 import styled from "styled-components";
 import Delimg from "../../../images/delete.png";
 import plusbutton from "../../../images/plusbutton.png";
 import edim from "../../../images/edit.png";
 import alocated from "../../../images/done.png";
+import selectedDataToEdit from "../../../selectedDataToEdit";
 import { Cardcont } from "./Cardcont";
 import { useRouter } from "next/router";
 
@@ -22,6 +22,19 @@ const Card = styled.div`
 export const Landingpage1 = () => {
 
   const Router = useRouter();
+  const [cardDetails, setcardDetails] = useState(demototalschedule);
+
+  const deletedetail = (i)=>{
+    let tempcardDetail = [...cardDetails]
+    tempcardDetail.splice(i,1);
+    setcardDetails(tempcardDetail);
+    demototalschedule = tempcardDetail;
+  }
+
+  const editCard = (index)=>{
+    selectedDataToEdit = demototalschedule[index];
+    Router.push("/Editschedule");
+  }
 
   return (
     <>
@@ -69,7 +82,7 @@ export const Landingpage1 = () => {
               />
             </Box>
           </Box>
-            {demototalschedule.map((schedules,i)=>(
+            {cardDetails.map((schedules,i)=>(
                 <Card
                 key={i}
           style={{
@@ -124,11 +137,13 @@ export const Landingpage1 = () => {
                   source={edim}
                   alternative="edit"
                   cssStyles={{ marginRight: "10px" }}
+                  onclick={()=>{editCard(i)}}
                 />
                 <Imgcomp
                   source={Delimg}
                   alternative="delete"
                   cssStyles={{ marginLeft: "10px" }}
+                  onclick={()=>{deletedetail(i)}}
                 />
               </Box>
             </Box>

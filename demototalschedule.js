@@ -1,4 +1,4 @@
-let demototalschedule = [
+let totalschedule = [
   {
     branch: "B.E",
     department: "EEE",
@@ -52,6 +52,7 @@ let demototalschedule = [
     ],
     issubmit: true,
     isalloted: false,
+
   },
   {
     branch: "B.E",
@@ -73,4 +74,4 @@ let demototalschedule = [
   },
 ];
 
-export default demototalschedule;
+export default totalschedule;

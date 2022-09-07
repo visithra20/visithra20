@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "../Reusecomp/Box";
 import { Textcomp } from "../Reusecomp/Textcomp";
 
-export const Cardcont = ({name,value})=>{
+export const Cardcont = ({name,value = 0})=>{
     return(
     <Box name={name} cssStyle={{width: "calc(100% * (1/3))",marginTop: "10px"}}>
               <Textcomp
