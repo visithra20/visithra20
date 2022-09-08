@@ -65,8 +65,8 @@ export const Toprow = ({
   };
 
   const changesemester = (e)=>{
-    let typeddata = e.nativeEvent.data;
-    !isNaN(typeddata) && setSemester(typeddata)
+    let typeddata = e.target.value;
+    setSemester(typeddata)
   }
 
   return (

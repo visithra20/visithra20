@@ -8,9 +8,12 @@ import { Inputcomp } from "../Reusecomp/Inputcomp";
 import submitdata from "../../../submitdata";
 
 export const Subjectcomp = ({ index, subjectList }) => {
-  const [isfnactive, setisfnactive] = useState(false);
-  const [isanactive, setisanactive] = useState(false);
-  const [date, setdate] = useState("");
+  console.log(subjectList[index].section);
+  console.log("break");
+  const [isfnactive, setisfnactive] = useState(subjectList[index].section === "FN" ? true: false);
+  const [isanactive, setisanactive] = useState(subjectList[index].section === "AN" ? true: false);
+  const [date, setdate] = useState(subjectList[index].date);
+  console.log(subjectList[index].section);
 
   const changefncolor = () => {
     setisanactive(isfnactive);
@@ -25,15 +28,15 @@ export const Subjectcomp = ({ index, subjectList }) => {
   };
 
   useEffect(() => {
-    subjectList[index][2] = date;
+    subjectList[index].date = date;
     submitdata["subjectList"] = subjectList;
   }, [date]);
 
   useEffect(()=>{
     if(isanactive){
-      subjectList[index][3] = "AN";
+      subjectList[index].section = "AN";
     } else if(isfnactive){
-      subjectList[index][3] = "FN";
+      subjectList[index].section = "FN";
     }
   },[isanactive,isfnactive]);
 
@@ -55,7 +58,7 @@ export const Subjectcomp = ({ index, subjectList }) => {
           }}
           // onclick = {changeHidden}
         >
-          <Textcomp value={subjectList[index][0]} />
+          <Textcomp value={subjectList[index].code} />
           <Imgcomp
             source={dropdownicon}
             alternative="dropdown"
@@ -74,7 +77,7 @@ export const Subjectcomp = ({ index, subjectList }) => {
           }}
           // onclick = {changeHidden}
         >
-          <Textcomp value={subjectList[index][1]} />
+          <Textcomp value={subjectList[index].name} />
         </Box>
         <Inputcomp
           type="date"

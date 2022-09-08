@@ -10,15 +10,15 @@ import { Thirdrow } from "../Schedule1/Thirdrow";
 import { Subjectlist } from "../Schedule1/Subjectlist";
 import formdata from "../../../Dataforcreatesche.js";
 import submitdata from "../../../submitdata";
-import { Popup1 } from "./Popup1";
+import { Popup2 } from "./Popup2";
 import demototalschedule from "../../../demototalschedule";
+import selectedDataToEdit from "../../../selectedDataToEdit";
 
-export const Editschedule = ({selectedDataToEdit}) => {
+export const Editschedule = () => {
   const Router = useRouter();
   const handleback = () => {
     Router.push("/Landingpage");
   };
-  console.log(selectedDataToEdit.subjectList.length);
   const [branch, setBranch] = useState(selectedDataToEdit.branch !== undefined ? selectedDataToEdit.branch: "--select--");
   const [department, setDepartment] = useState(selectedDataToEdit.department !== undefined ? selectedDataToEdit.department: "--select--");
   const [activeexam, setactiveexam] = useState(selectedDataToEdit.activeexam !== undefined ? selectedDataToEdit.activeexam: "--select--");
@@ -35,17 +35,6 @@ export const Editschedule = ({selectedDataToEdit}) => {
   let subjectList = selectedDataToEdit.subjectList;
   let labList = selectedDataToEdit.labList;
 
-  useEffect(() => {}, [department, branch, activeexam]);
-
-  // formdata.exams.semester[semester][department] !== undefined &&
-  //   formdata.exams.semester[semester][department].map((e) => {
-  //     if (e.exam === activeexam) {
-  //       // console.log(e);
-  //       subjectList = e.subjects;
-  //       labList = e.labs;
-  //     }
-  //     // subjectList = e.subjects;
-  //   });
 
   const submitschedule = (e) => {
     submitdata.branch = branch;
@@ -56,7 +45,7 @@ export const Editschedule = ({selectedDataToEdit}) => {
     submitdata.labList = labList;
     submitdata.issubmit = !submitdata.issubmit
     setpophidden(!pophidden)
-    e.target.innerHTML === "Save" && demototalschedule.push(submitdata);
+    e.target.innerHTML === "Save" && "";
   };
 
   return (
@@ -129,7 +118,7 @@ export const Editschedule = ({selectedDataToEdit}) => {
         }}
         onclick={submitschedule}
       >
-        <Popup1
+        <Popup2
         branch = {branch}
         semester={semester}
         department={department}

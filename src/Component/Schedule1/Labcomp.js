@@ -9,10 +9,10 @@ import dropdownicon from "../../../images/dropdownbtn.png";
 import submitdata from "../../../submitdata";
 
 
-export const Labcomp = ({labList,labcode,lab,index}) => {
-  const [isfnactive, setisfnactive] = useState(false);
-  const [isanactive, setisanactive] = useState(false);
-  const [date, setdate] = useState("");
+export const Labcomp = ({labList,index}) => {
+  const [isfnactive, setisfnactive] = useState(labList[index].section === "FN" ? true: false);
+  const [isanactive, setisanactive] = useState(labList[index].section === "AN" ? true: false);
+  const [date, setdate] = useState(labList[index].date);
 
   const changefncolor = ()=>{
     setisanactive(isfnactive);
@@ -27,22 +27,20 @@ export const Labcomp = ({labList,labcode,lab,index}) => {
   };
   
   useEffect(() => {
-    labList[index][2] = date;
+    labList[index].date = date;
     submitdata["labList"] = labList;
   }, [date]);
 
   useEffect(()=>{
     if(isanactive){
-      labList[index][3] = "AN";
+      labList[index].section = "AN";
     } else if(isfnactive){
-      labList[index][3] = "FN";
+      labList[index].section = "FN";
     }
   },[isanactive,isfnactive]);
 
   return (
     <>
-      
-
       <Box name={"Lab"+(index+1)} cssStyle={{ marginTop: "30px" }}>
         <Textcomp Comp="div" value={"Lab"+(index+1)} />
 
@@ -60,7 +58,7 @@ export const Labcomp = ({labList,labcode,lab,index}) => {
             }}
             // onclick = {changeHidden}
           >
-            <Textcomp value={labcode} />
+            <Textcomp value={labList[index].code} />
             <Imgcomp
               source={dropdownicon}
               alternative="dropdown"
@@ -79,7 +77,7 @@ export const Labcomp = ({labList,labcode,lab,index}) => {
             }}
             // onclick = {changeHidden}
           >
-            <Textcomp value={lab} />
+            <Textcomp value={labList[index].name} />
           </Box>
           {/* <ExamType hidden={ishidden}/> */}
 

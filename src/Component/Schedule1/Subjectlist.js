@@ -18,10 +18,13 @@ export const Subjectlist = ({
   setlabcount,
 }) => {
   useEffect(() => {
-    subjectList.length !== undefined
+    subjectList !== undefined
       ? setsubjectcount(subjectList.length)
       : setsubjectcount(0);
   }, [subjectList]);
+  useEffect(() => {
+    labList !== undefined ? setlabcount(labList.length) : setlabcount(0);
+  }, [labList]);
 
   // useEffect(() => {
   //   if (subjectList.length !== undefined) {
@@ -30,12 +33,8 @@ export const Subjectlist = ({
   //     setsubjectcount(0);
   //   }
   // }, [subjectList]);
+  // console.log(subjectList);
 
-  // console.log({ subjectList });
-
-  useEffect(() => {
-    labList.length !== undefined ? setlabcount(labList.length) : setlabcount(0);
-  }, [labList]);
 
   return (
     <Box name="subjectlist">
@@ -70,7 +69,7 @@ export const Subjectlist = ({
 
       {/* here */}
 
-      {subjectList.length !== undefined ? (
+      {subjectList !== undefined ? (
         subjectList.map((subjects, i) => {
           return (
             <Subjectcomp
@@ -98,9 +97,9 @@ export const Subjectlist = ({
         }}
       />
 
-      {labList.length !== undefined ? (
+      {labList !== undefined ? (
         labList.map((e, i) => (
-          <Labcomp labList={labList} labcode={e[0]} key={i} index={i} lab={e[1]} />
+          <Labcomp labList={labList} key={i} index={i} />
         ))
       ) : (
         <></>

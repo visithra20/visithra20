@@ -16,50 +16,170 @@ const formdata = {
           {
             exam: "Semester",
             subjects: [
-              ["19QSA011","Measurement and Instrumentation","",""],
-              ["19HSM002", "Electrical Machines","",""],
-              ["19ASR008", "Power Systems","",""],
-              ["19CTR105","Microcontrollers","",""],
-              ["19ASR008", "Power Systems","",""],
-              ["19CTR105","Microcontrollers","",""]
+              {
+                code: "19QSA011",
+                name: "Measurement and Instrumentation",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19HSM002",
+                name: "Electrical Machine",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19ASR008",
+                name: "Power Systems",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19CTR105",
+                name: "Microcontrollers",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19ASR008",
+                name: "Power Systems",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19HSM002",
+                name: "Electrical Machines",
+                date: "",
+                section: ""
+              }
             ],
             labs: [
-              ["19QSA011", "Measurement and Instrumentation","",""],
-              ["19HSM002", "Electrical Machines","",""]
+              {
+                code: "19QSA011",
+                name: "Measurement and Instrumentation",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19HSM002",
+                name: "Electrical Machines",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19HSM002",
+                name: "Electrical Machines",
+                date: "",
+                section: ""
+              }
             ]
           },
 
           {
             exam: "Model",
             subjects: [
-              ["19QSA011M", "Measurement and InstrumentationMod","",""],
-              ["19HSM002M", "Electrical MachinesMod","",""],
-              ["19ASR008M", "Power SystemsMod","",""],
-              ["19CTR105M", "MicrocontrollersMod","",""],
-              ["19MNS202M", "Control SystemsMod","",""]
+              {
+                code: "19QSA011M",
+                name: "Measurement and InstrumentationMod",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19HSM002M",
+                name: "Electrical MachinesMod",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19ASR008M",
+                name: "Power SystemsMod",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19CTR105M",
+                name: "MicrocontrollersMod",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19MNS202M",
+                name: "Control SystemsMod",
+                date: "",
+                section: ""
+              }
             ],
             labs: [
-              ["19QSA011M", "Measurement and InstrumentationM","",""],
-              ["19HSM002M", "Electrical MachinesM","",""]
+              {
+                code: "19QSA011M",
+                name: "Measurement and InstrumentationM",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19HSM002M",
+                name: "Electrical MachinesM",
+                date: "",
+                section: ""
+              }
             ],
           },
 
           {
             exam: "Internal",
             subjects: [
-              ["19QSA011M", "Measurement and InstrumentationMod","",""],
-              ["19HSM002M", "Electrical MachinesMod","",""],
-              ["19ASR008M", "Power SystemsMod","",""],
-              ["19CTR105M", "MicrocontrollersMod","",""],
-              ["19MNS202M", "Control SystemsMod","",""]
+              {
+                code: "19QSA011M",
+                name: "Measurement and InstrumentationMod",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19HSM002Masd",
+                name: "Electrical MachinesModirks",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19ASR008M",
+                name: "Power SystemsMod",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19CTR105M",
+                name: "MicrocontrollersMod",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19MNS202M",
+                name: "Control SystemsMod",
+                date: "",
+                section: ""
+              }
             ],
             labs: [
-              ["19QSA011M", "Measurement and InstrumentationM","",""],
-              ["19HSM002M", "Electrical MachinesM","",""]
+              {
+                code: "19HSM002Masd",
+                name: "Measurement and InstrumentationM",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19HSM002M",
+                name: "Electrical MachinesM",
+                date: "",
+                section: ""
+              },
+              {
+                code: "19MNS202M",
+                name: "Control SystemsMod",
+                date: "",
+                section: ""
+              }
             ],
           },
-
-
         ],
       },
     ],

@@ -22,7 +22,7 @@ export const Addschedule = () => {
   const [branch, setBranch] = useState("--select--");
   const [department, setDepartment] = useState("--select--");
   const [activeexam, setactiveexam] = useState("--select--");
-  const [semester, setSemester] = useState(0);
+  const [semester, setSemester] = useState(1);
   const [subjectCount, setsubjectcount] = useState("0");
   const [labCount, setlabcount] = useState("0");
   const [fnstart, setfnstart] = useState([9, 30, "AM"]);
@@ -32,30 +32,33 @@ export const Addschedule = () => {
     fnstart[0] + 3 >= 12 ? "PM" : "AM",
   ]);
   const [pophidden,setpophidden] = useState(true);
-  let subjectList = {};
-  let labList = {};
+  let subjectList = [];
+  let labList = [];
 
-  useEffect(() => {}, [department, branch, activeexam]);
-
-  formdata.exams.semester[semester][department] !== undefined &&
-    formdata.exams.semester[semester][department].map((e) => {
+  useEffect(() => {setactiveexam("--select--")}, [semester]);
+  (formdata.exams.semester[semester-1] !== undefined && formdata.exams.semester[semester-1][department] !== undefined )&&
+    formdata.exams.semester[semester-1][department].map((e) => {
       if (e.exam === activeexam) {
         // console.log(e);
         subjectList = e.subjects;
         labList = e.labs;
+        // console.log(subjectList);
+        // console.log(labList);
       }
-      // subjectList = e.subjects;
     });
+
+
+
 
   const submitschedule = (e) => {
     submitdata.branch = branch;
     submitdata.department = department;
     submitdata.activeexam = activeexam;
-    submitdata.semester = semester + 1+"";
+    submitdata.semester = semester;
     submitdata.subjectList = subjectList;
     submitdata.labList = labList;
     submitdata.issubmit = !submitdata.issubmit
-    setpophidden(!pophidden)
+    setpophidden(!pophidden);
     e.target.innerHTML === "Save" && demototalschedule.push(submitdata);
   };
 
@@ -92,7 +95,7 @@ export const Addschedule = () => {
           setBranch={setBranch}
           department={department}
           setDepartment={setDepartment}
-          semester={semester + 1}
+          semester={semester}
           setSemester={setSemester}
           setactiveexam={setactiveexam}
         />
@@ -101,7 +104,7 @@ export const Addschedule = () => {
           department={department}
           activeexam={activeexam}
           setactiveexam={setactiveexam}
-          semester={semester}
+          semester={parseInt(semester) - 1}
         />
         <Thirdrow
           activeexam={activeexam}

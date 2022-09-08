@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Box } from "../Reusecomp/Box";
 import { Textcomp } from "../Reusecomp/Textcomp";
 import { Imgcomp } from "../Reusecomp/Imgcomp";
-import demototalschedule from "../../../demototalschedule";
+import demototalschedule from "../../../demototalschedule.js";
 import styled from "styled-components";
 import Delimg from "../../../images/delete.png";
 import plusbutton from "../../../images/plusbutton.png";
 import edim from "../../../images/edit.png";
 import alocated from "../../../images/done.png";
-import selectedDataToEdit from "../../../selectedDataToEdit";
+import selectedDataToEdit from "../../../selectedDataToEdit.js";
 import { Cardcont } from "./Cardcont";
 import { useRouter } from "next/router";
 
@@ -28,14 +28,12 @@ export const Landingpage1 = () => {
     let tempcardDetail = [...cardDetails]
     tempcardDetail.splice(i,1);
     setcardDetails(tempcardDetail);
-    demototalschedule = tempcardDetail;
   }
 
   const editCard = (index)=>{
     selectedDataToEdit = demototalschedule[index];
     Router.push("/Editschedule");
   }
-
   return (
     <>
       <Box cssStyle={{ padding: "10% 5% 7% 2%" }}>

@@ -3,7 +3,7 @@ import React from "react";
 import { Box } from "../Reusecomp/Box";
 import { Textcomp } from "../Reusecomp/Textcomp";
 
-export const Popup1 = ({ cssStyle,hidden,branch,semester,department }) => {
+export const Popup2 = ({ cssStyle,hidden,branch,semester,department }) => {
     const Router = useRouter();
     const gohome = () => {
     Router.push("/Landingpage");
@@ -30,7 +30,7 @@ export const Popup1 = ({ cssStyle,hidden,branch,semester,department }) => {
             margin: "55px 30px"
 
           }}
-          value={branch+" "+department+" SEM"+(semester+1)+" schedule was successfully created."}
+          value={branch+" "+department+" SEM"+(semester+1)+" schedule was edited successfully."}
         />
         <Box cssStyle={{ display: "flex" }}>
           <Box name="button">

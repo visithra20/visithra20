@@ -5,14 +5,44 @@ let totalschedule = [
     activeexam: "Internals",
     semester: "1",
     subjectList: [
-      ["19QSA011", "Measurement and Instrumentation", "", ""],
-      ["19HSM002", "Electrical Machines", "", ""],
-      ["19ASR008", "Power Systems", "", ""],
-      ["19CTR105", "Microcontrollers", "", ""],
+      {
+        code: "19QSA011",
+        name: "Measurement and Instrumentation",
+        date: "2022-09-09",
+        section: "FN"
+      },
+      {
+        code: "19ASR008",
+        name: "Power Systems",
+        date: "2022-09-10",
+        section: "AN"
+      },
+      {
+        code: "19CTR105",
+        name: "Microcontrollers",
+        date: "2022-09-12",
+        section: "AN"
+      },
+      {
+        code: "19HSM002",
+        name: "Electrical Machines",
+        date: "2022-09-13",
+        section: "FN"
+      }
     ],
     labList: [
-      ["19QSA011", "Measurement and Instrumentation", "", ""],
-      ["19HSM002", "Electrical Machines", "", ""],
+      {
+        code: "19HSM002",
+        name: "Electrical Machines",
+        date: "2022-09-10",
+        section: "AN"
+      },
+      {
+        code: "19QSA011",
+        name: "Measurement and Instrumentation",
+        date: "2022-09-13",
+        section: "FN"
+      },
     ],
     issubmit: true,
     isalloted: true,
@@ -23,14 +53,44 @@ let totalschedule = [
     activeexam: "Model",
     semester: "2",
     subjectList: [
-      ["19QSA011", "Measurement and Instrumentation", "", ""],
-      ["19HSM002", "Electrical Machines", "", ""],
-      ["19ASR008", "Power Systems", "", ""],
-      ["19CTR105", "Microcontrollers", "", ""],
+      {
+        code: "19ASR008",
+        name: "Power Systems",
+        date: "2022-09-09",
+        section: "FN"
+      },
+      {
+        code: "19CTR105",
+        name: "Microcontrollers",
+        date: "2022-09-10",
+        section: "AN"
+      },
+      {
+        code: "19HSM002",
+        name: "Electrical Machines",
+        date: "2022-09-12",
+        section: "AN"
+      },
+      {
+        code: "19QSA011",
+        name: "Measurement and Instrumentation",
+        date: "2022-09-13",
+        section: "FN"
+      },
     ],
     labList: [
-      ["19QSA011", "Measurement and Instrumentation", "", ""],
-      ["19HSM002", "Electrical Machines", "", ""],
+      {
+        code: "19HSM002",
+        name: "Electrical Machines",
+        date: "2022-09-10",
+        section: "FN"
+      },
+      {
+        code: "19QSA011",
+        name: "Measurement and Instrumentation",
+        date: "2022-09-13",
+        section: "AN"
+      },
     ],
     issubmit: true,
     isalloted: true,
@@ -41,14 +101,44 @@ let totalschedule = [
     activeexam: "Internals",
     semester: "2",
     subjectList: [
-      ["19QSA011", "Measurement and Instrumentation", "", ""],
-      ["19HSM002", "Electrical Machines", "", ""],
-      ["19ASR008", "Power Systems", "", ""],
-      ["19CTR105", "Microcontrollers", "", ""],
+      {
+        code: "19ASR008",
+        name: "Power Systems",
+        date: "2022-09-09",
+        section: "AN"
+      },
+      {
+        code: "19HSM002",
+        name: "Electrical Machines",
+        date: "2022-09-10",
+        section: "FN"
+      },
+      {
+        code: "19QSA011",
+        name: "Measurement and Instrumentation",
+        date: "2022-09-12",
+        section: "AN"
+      },
+      {
+        code: "19CTR105",
+        name: "Microcontrollers",
+        date: "2022-09-13",
+        section: "FN"
+      },
     ],
     labList: [
-      ["19QSA011", "Measurement and Instrumentation", "", ""],
-      ["19HSM002", "Electrical Machines", "", ""],
+      {
+        code: "19HSM002",
+        name: "Electrical Machines",
+        date: "2022-09-10",
+        section: "AN"
+      },
+      {
+        code: "19QSA011",
+        name: "Measurement and Instrumentation",
+        date: "2022-09-13",
+        section: "AN"
+      },
     ],
     issubmit: true,
     isalloted: false,
@@ -60,14 +150,44 @@ let totalschedule = [
     activeexam: "Semester",
     semester: "5",
     subjectList: [
-      ["19QSA011", "Measurement and Instrumentation", "", ""],
-      ["19HSM002", "Electrical Machines", "", ""],
-      ["19ASR008", "Power Systems", "", ""],
-      ["19CTR105", "Microcontrollers", "", ""],
+      {
+        code: "19ASR008",
+        name: "Power Systems",
+        date: "2022-09-09",
+        section: "AN"
+      },
+      {
+        code: "19CTR105",
+        name: "Microcontrollers",
+        date: "2022-09-10",
+        section: "AN"
+      },
+      {
+        code: "19QSA011",
+        name: "Measurement and Instrumentation",
+        date: "2022-09-12",
+        section: "FN"
+      },
+      {
+        code: "19HSM002",
+        name: "Electrical Machines",
+        date: "2022-09-13",
+        section: "AN"
+      },
     ],
     labList: [
-      ["19QSA011", "Measurement and Instrumentation", "", ""],
-      ["19HSM002", "Electrical Machines", "", ""],
+      {
+        code: "19HSM002",
+        name: "Electrical Machines",
+        date: "2022-09-09",
+        section: "FN"
+      },
+      {
+        code: "19QSA011",
+        name: "Measurement and Instrumentation",
+        date: "2022-09-10",
+        section: "FN"
+      },
     ],
     issubmit: true,
     isalloted: false,
