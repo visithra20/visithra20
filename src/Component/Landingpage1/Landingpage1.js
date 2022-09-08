@@ -31,7 +31,7 @@ export const Landingpage1 = () => {
   }
 
   const editCard = (index)=>{
-    selectedDataToEdit = demototalschedule[index];
+    selectedDataToEdit = {data: demototalschedule[index],index:index};
     Router.push("/Editschedule");
   }
   return (

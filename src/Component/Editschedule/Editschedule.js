@@ -9,7 +9,6 @@ import { Secondrow } from "../Schedule1/Secondrow";
 import { Thirdrow } from "../Schedule1/Thirdrow";
 import { Subjectlist } from "../Schedule1/Subjectlist";
 import formdata from "../../../Dataforcreatesche.js";
-import submitdata from "../../../submitdata";
 import { Popup2 } from "./Popup2";
 import demototalschedule from "../../../demototalschedule";
 import selectedDataToEdit from "../../../selectedDataToEdit";
@@ -19,12 +18,15 @@ export const Editschedule = () => {
   const handleback = () => {
     Router.push("/Landingpage");
   };
-  const [branch, setBranch] = useState(selectedDataToEdit.branch !== undefined ? selectedDataToEdit.branch: "--select--");
-  const [department, setDepartment] = useState(selectedDataToEdit.department !== undefined ? selectedDataToEdit.department: "--select--");
-  const [activeexam, setactiveexam] = useState(selectedDataToEdit.activeexam !== undefined ? selectedDataToEdit.activeexam: "--select--");
-  const [semester, setSemester] = useState(selectedDataToEdit.semester !== undefined? selectedDataToEdit.semester-1 : 0);
-  const [subjectCount, setsubjectcount] = useState(selectedDataToEdit.subjectList !== undefined ? selectedDataToEdit.subjectList.length : "0" );
-  const [labCount, setlabcount] = useState(selectedDataToEdit.labList !== undefined ? selectedDataToEdit.labList.length : "0");
+  let submitdata = {};
+
+
+  const [branch, setBranch] = useState(selectedDataToEdit.data.branch !== "" ? selectedDataToEdit.data.branch: "--select--");
+  const [department, setDepartment] = useState(selectedDataToEdit.data.department !== "" ? selectedDataToEdit.data.department: "--select--");
+  const [activeexam, setactiveexam] = useState(selectedDataToEdit.data.activeexam !== "" ? selectedDataToEdit.data.activeexam: "--select--");
+  const [semester, setSemester] = useState(selectedDataToEdit.data.semester !== "" ? selectedDataToEdit.data.semester-1 : 0);
+  const [subjectCount, setsubjectcount] = useState(selectedDataToEdit.data.subjectList !== [] ? selectedDataToEdit.data.subjectList.length : "0" );
+  const [labCount, setlabcount] = useState(selectedDataToEdit.data.labList !== [] ? selectedDataToEdit.data.labList.length : "0");
   const [fnstart, setfnstart] = useState([9, 30, "AM"]);
   const [fnend, setfnend] = useState([
     fnstart[0] + 3,
@@ -32,8 +34,8 @@ export const Editschedule = () => {
     fnstart[0] + 3 >= 12 ? "PM" : "AM",
   ]);
   const [pophidden,setpophidden] = useState(true);
-  let subjectList = selectedDataToEdit.subjectList;
-  let labList = selectedDataToEdit.labList;
+  let subjectList = selectedDataToEdit.data.subjectList;
+  let labList = selectedDataToEdit.data.labList;
 
 
   const submitschedule = (e) => {
@@ -43,9 +45,11 @@ export const Editschedule = () => {
     submitdata.semester = semester + 1+"";
     submitdata.subjectList = subjectList;
     submitdata.labList = labList;
-    submitdata.issubmit = !submitdata.issubmit
+
+  console.log(submitdata);
+    // submitdata.issubmit = !submitdata.issubmit
     setpophidden(!pophidden)
-    e.target.innerHTML === "Save" && "";
+    e.target.innerHTML === "Save" ? demototalschedule[selectedDataToEdit.index] = submitdata: "";
   };
 
   return (

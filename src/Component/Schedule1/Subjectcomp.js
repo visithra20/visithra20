@@ -8,13 +8,9 @@ import { Inputcomp } from "../Reusecomp/Inputcomp";
 import submitdata from "../../../submitdata";
 
 export const Subjectcomp = ({ index, subjectList }) => {
-  console.log(subjectList[index].section);
-  console.log("break");
   const [isfnactive, setisfnactive] = useState(subjectList[index].section === "FN" ? true: false);
   const [isanactive, setisanactive] = useState(subjectList[index].section === "AN" ? true: false);
   const [date, setdate] = useState(subjectList[index].date);
-  console.log(subjectList[index].section);
-
   const changefncolor = () => {
     setisanactive(isfnactive);
     setisfnactive(!isfnactive);
@@ -41,8 +37,8 @@ export const Subjectcomp = ({ index, subjectList }) => {
   },[isanactive,isfnactive]);
 
   return (
-    <Box name={"subject" + (index + 1)} cssStyle={{ marginTop: "30px" }}>
-      <Textcomp Comp="div" value={"subject" + (index + 1)} />
+    <Box name={"subject " + (index + 1)} cssStyle={{ marginTop: "30px" }}>
+      <Textcomp Comp="div" value={"subject " + (index + 1)} />
 
       <Box
         name="sublistinp"
