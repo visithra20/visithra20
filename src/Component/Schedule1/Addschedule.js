@@ -9,7 +9,6 @@ import { Secondrow } from "./Secondrow";
 import { Thirdrow } from "./Thirdrow";
 import { Subjectlist } from "./Subjectlist";
 import formdata from "../../../Dataforcreatesche.js";
-import submitdata from "../../../submitdata";
 import { Popup1 } from "./Popup1";
 import demototalschedule from "../../../demototalschedule";
 
@@ -51,14 +50,19 @@ export const Addschedule = () => {
 
 
   const submitschedule = (e) => {
-    submitdata.branch = branch;
-    submitdata.department = department;
-    submitdata.activeexam = activeexam;
-    submitdata.semester = semester;
-    submitdata.subjectList = subjectList;
-    submitdata.labList = labList;
-    submitdata.issubmit = !submitdata.issubmit
+    const submitdata = {
+      branch : branch,
+    department : department,
+    activeexam : activeexam,
+    semester :semester,
+    subjectList : subjectList,
+    labList : labList,
+    issubmit:  true
+    }
+    
     setpophidden(!pophidden);
+    console.log(submitdata);
+    console.log(demototalschedule);
     e.target.innerHTML === "Save" && demototalschedule.push(submitdata);
   };
 

@@ -21,10 +21,10 @@ export const Editschedule = () => {
   let submitdata = {};
 
 
-  const [branch, setBranch] = useState(selectedDataToEdit.data.branch !== "" ? selectedDataToEdit.data.branch: "--select--");
-  const [department, setDepartment] = useState(selectedDataToEdit.data.department !== "" ? selectedDataToEdit.data.department: "--select--");
-  const [activeexam, setactiveexam] = useState(selectedDataToEdit.data.activeexam !== "" ? selectedDataToEdit.data.activeexam: "--select--");
-  const [semester, setSemester] = useState(selectedDataToEdit.data.semester !== "" ? selectedDataToEdit.data.semester-1 : 0);
+  const [branch, setBranch] = useState(selectedDataToEdit.data.branch !== null ? selectedDataToEdit.data.branch: "--select--");
+  const [department, setDepartment] = useState(selectedDataToEdit.data.department !== null ? selectedDataToEdit.data.department: "--select--");
+  const [activeexam, setactiveexam] = useState(selectedDataToEdit.data.activeexam !== null ? selectedDataToEdit.data.activeexam: "--select--");
+  const [semester, setSemester] = useState(selectedDataToEdit.data.semester !== null ? selectedDataToEdit.data.semester : 0);
   const [subjectCount, setsubjectcount] = useState(selectedDataToEdit.data.subjectList !== [] ? selectedDataToEdit.data.subjectList.length : "0" );
   const [labCount, setlabcount] = useState(selectedDataToEdit.data.labList !== [] ? selectedDataToEdit.data.labList.length : "0");
   const [fnstart, setfnstart] = useState([9, 30, "AM"]);
@@ -42,14 +42,14 @@ export const Editschedule = () => {
     submitdata.branch = branch;
     submitdata.department = department;
     submitdata.activeexam = activeexam;
-    submitdata.semester = semester + 1+"";
-    submitdata.subjectList = subjectList;
-    submitdata.labList = labList;
+    submitdata.semester = semester;
+    submitdata.subjectList = selectedDataToEdit.data.subjectList;
+    submitdata.labList = selectedDataToEdit.data.labList;
 
   console.log(submitdata);
     // submitdata.issubmit = !submitdata.issubmit
     setpophidden(!pophidden)
-    e.target.innerHTML === "Save" ? demototalschedule[selectedDataToEdit.index] = submitdata: "";
+    e.target.innerHTML === "Save" ? demototalschedule[selectedDataToEdit.index] = submitdata : "";
   };
 
   return (
@@ -85,7 +85,7 @@ export const Editschedule = () => {
           setBranch={setBranch}
           department={department}
           setDepartment={setDepartment}
-          semester={semester + 1}
+          semester={semester}
           setSemester={setSemester}
           setactiveexam={setactiveexam}
         />
