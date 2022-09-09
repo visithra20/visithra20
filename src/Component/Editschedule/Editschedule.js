@@ -46,7 +46,6 @@ export const Editschedule = () => {
     submitdata.subjectList = selectedDataToEdit.data.subjectList;
     submitdata.labList = selectedDataToEdit.data.labList;
 
-  console.log(submitdata);
     // submitdata.issubmit = !submitdata.issubmit
     setpophidden(!pophidden)
     e.target.innerHTML === "Save" ? demototalschedule[selectedDataToEdit.index] = submitdata : "";

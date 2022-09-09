@@ -57,7 +57,9 @@ export const Addschedule = () => {
     semester :semester,
     subjectList : subjectList,
     labList : labList,
-    issubmit:  true
+    issubmit:  true,
+    isalloted: false
+    
     }
     
     setpophidden(!pophidden);

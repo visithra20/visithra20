@@ -28,6 +28,7 @@ export const Landingpage1 = () => {
     let tempcardDetail = [...cardDetails]
     tempcardDetail.splice(i,1);
     setcardDetails(tempcardDetail);
+    demototalschedule = tempcardDetail
   }
 
   const editCard = (index)=>{
