@@ -1,4 +1,5 @@
 .App {
+<<<<<<< HEAD
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
@@ -14,3 +15,44 @@
     transform: rotate(360deg);
   }
 }
+=======
+  font: bold small-caps bold 12px/30px Georgia, serif;
+  color: #000000;
+  background-image: url("https://wallpaperaccess.com/full/1244858.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: rgb(37, 36, 39);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.front-2 {
+  background-color: rgb(235, 21, 21);
+  border: 3px solid white;
+  border-radius: 30px;
+  height: 100px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.front-2:hover {
+  background-color: rgb(219, 219, 105);
+}
+/* .one{
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+} */
+>>>>>>> f4c52a98e4fbce2c01fad2476ae38df77b2234b8

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from "react";
 import { Header } from "./Component/Header";
 import GlobalStyle from "../src/Globalstyles";
@@ -100,3 +101,35 @@ function App() {
 
 export default App;
 >>>>>>> 506334807f3d7d49c59e1a8091a1e0a015acca1d
+=======
+import logo from "./logo.svg";
+import "./App.css";
+import Front from "./component/Front";
+import { useState } from "react";
+
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Home from "./component/Home";
+import Muscle from "./component/Muscle";
+function App() {
+  return (
+    <div className="App">
+      {/* {name.map(function (e) { */}
+      {/* return (
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <Front task={e.name} /> */}
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/Muscle/:id" component={Muscle}></Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+}
+// )}
+// </div>
+//   );
+// }
+
+export default App;
+>>>>>>> f4c52a98e4fbce2c01fad2476ae38df77b2234b8

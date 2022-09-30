@@ -1,6 +1,7 @@
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dependencies": {
     "axios": "^0.27.2",
     "babel-plugin-styled-components": "^2.0.7",
@@ -44,6 +45,9 @@
 >>>>>>> e9cbc3ca7f7a47acfe19f62e5b0afac6b195e34d
 =======
   "name": "todo",
+=======
+  "name": "fitness-app",
+>>>>>>> f4c52a98e4fbce2c01fad2476ae38df77b2234b8
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -52,6 +56,10 @@
     "@testing-library/user-event": "^12.8.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+<<<<<<< HEAD
+=======
+    "react-router-dom": "^5.3.0",
+>>>>>>> f4c52a98e4fbce2c01fad2476ae38df77b2234b8
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
@@ -79,5 +87,8 @@
       "last 1 safari version"
     ]
   }
+<<<<<<< HEAD
 >>>>>>> 506334807f3d7d49c59e1a8091a1e0a015acca1d
+=======
+>>>>>>> f4c52a98e4fbce2c01fad2476ae38df77b2234b8
 }
